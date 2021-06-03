@@ -1,0 +1,248 @@
+@import '@/scss/helpers.scss';
+@import '@temp/theme.scss';
+@import '@site/theme.scss';
+.customer-service-view {
+  background: $theme-cs-bg;
+  overflow-y: scroll;
+  .customer-header{
+    background-image: url(link('/assets/blue/kok/customer-service/customer-bg.webp'));
+    width: 100%;
+    margin-bottom: rem(-160rem);
+    padding-top: rem(108rem);
+    height: rem(360rem);
+    background-size: cover;
+    .van-nav-bar{
+      background-color: transparent; 
+      .van-nav-bar__content{
+        height: auto; 
+      }
+    }
+    .van-hairline--bottom::after{
+      content: none;  
+    }
+    .van-nav-bar__title{
+      font-size: rem(36rem);
+      font-weight: bold;
+      color: $theme-cs-header-txt-color;
+    }
+    .van-nav-bar__text{
+      color: $theme-cs-header-txt-color;
+      opacity: .8;
+      font-size: rem(28rem);
+    }
+  }
+  .cs-info-card{
+    position: relative;
+    background: $theme-cs-card-bg-color;
+    margin: rem(32rem) rem(28rem);
+    margin-top: 0;
+    padding: rem(28rem);
+    padding-bottom: 0;
+    box-shadow: $theme-cs-card-shadow;
+    border-radius: rem(16rem);
+    .cs-info-card-bg{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: rem(150rem);
+      height: rem(150rem);
+      @include webp('/assets/blue/kok/customer-service/iconErji@2x.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+
+    }
+    .van-image{
+      width: rem(120rem);
+      height: rem(120rem);
+      margin-right: rem(24rem);
+    }
+    .cs-info-card-header{
+      padding-bottom: rem(27rem);
+      border-bottom: rem(2rem) solid $theme-cs-card-header-border-color;
+      h3{
+        font-size: rem(36rem);
+        line-height: rem(50rem);
+        margin-bottom: rem(8rem);
+        color: $theme-cs-card-header-title-color;
+      }
+      p{
+        color: $theme-cs-card-header-subtitle-color;
+        font-size: rem(24rem);
+      }  
+    }
+    .cs-info-card-footer{
+      font-size: rem(24rem);
+      padding: rem(20rem) 0;
+      p{
+        color: $theme-cs-card-footer-txt-color;
+      }
+      .van-button{
+        color: $theme-cs-card-footer-button-color;
+        padding: 0 rem(20rem);
+        line-height: rem(48rem);
+        height: rem(48rem);
+        width: rem(136rem);
+        border-radius: rem(24rem);
+        background: $theme-cs-card-footer-button-bg;
+        font-size: rem(24rem);
+        border: none;
+      }
+    }
+  }
+  .contact-cs-button{
+    margin-bottom: rem(32rem);
+    padding: 0 rem(12rem);
+    .van-button{
+      width: rem(330rem);
+      height: rem(88rem);
+      border: none;
+      border-radius: rem(12rem);
+      background-color: $theme-cs-bg-white;
+      font-size: rem(28rem);
+      color: $theme-cs-right-button-txt;
+      box-shadow: $theme-cs-right-button-shadow;
+      opacity:1 !important;
+    }
+    .van-button.master-cs{
+      background: $theme-cs-left-button-bg;
+      color: $theme-cs-left-button-txt;
+      box-shadow: $theme-cs-left-button-sahdow;
+    }
+    .van-button:active::before{
+      content: none;  
+    }
+    .van-button__icon{
+      font-size: 0;  
+    }
+    .van-icon__image{
+      width: rem(40rem);
+      height: auto;
+    }
+  }
+  .cs-questions{
+    margin: 0 rem(28rem) rem(20rem) rem(28rem);
+    background-color: $theme-cs-bg-white;
+    border-radius: rem(16rem);
+    box-shadow: 0 rem(4rem) rem(20rem) 0 rgba(19,88,152,.1);
+    overflow: hidden;
+    padding-top: rem(24rem);
+    padding-left: rem(28rem);
+    .cs-questions-title{
+      font-size: rem(28rem);
+      color: #333;
+      margin-bottom: rem(12rem);
+      font-weight: bold;
+    }
+    .van-cell{
+      padding-left: 0;
+      height: rem(120rem);
+      line-height: rem(120rem);
+      padding: 0;
+      display: flex;
+      align-items: center;
+      outline: none;
+    }
+    .van-icon__image{
+      width: rem(64rem);
+      height: rem(64rem);  
+    }
+    .van-cell__left-icon{
+      width: rem(64rem);
+      height: rem(64rem); 
+      margin-right: rem(20rem);
+    }
+    .van-cell--clickable:active{
+      background-color: $theme-cs-bg-white;  
+    }
+    .no-content{
+      .van-collapse-item__wrapper{
+        display: none;
+      }
+      .arrow{
+        transform: rotate(0deg) !important;
+      }
+    }
+    .van-collapse-item__content{
+      padding: 0;
+      padding-left: rem(99rem);
+      .item-link{
+        display: block; 
+        font-size: rem(24rem);
+        color: $theme-cs-item-link-txt; 
+        line-height: 1.5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-top: 7PX;
+        padding-bottom: 7PX;
+        position: relative;
+      }
+      .item-link::after{
+        content: ' ';
+        display: block;
+        width: rem(20rem);
+        height: rem(20rem);
+        background-image: url('/assets/blue/kok/customer-service/arrow.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        position: absolute;
+        right: 20PX;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .more-questions{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-left: rem(-99rem);
+        line-height: rem(34rem);
+        font-size: rem(24rem);
+        color: $theme-cs-more-link-txt;
+        i{
+          @include webp('/assets/blue/kok/customer-service/iconArrowDownBlue@2x.png');
+          background-size: cover;
+          width: rem(24rem);
+          height: rem(24rem);
+          margin-left: rem(8rem); 
+        }
+      }
+    }
+    .cs-questions-item{
+      .title{
+        flex:1;
+        font-size: rem(28rem);
+        color: $theme-cs-q-title-txt;
+      }
+      .value{
+        margin-right: rem(12rem); 
+        font-size: rem(24rem);
+        color: $theme-cs-q-value-txt;
+      }
+      padding-right: 20PX;
+      padding-left: rem(15rem);
+    }
+    .arrow{
+      display: block;
+      width: rem(20rem);
+      height: rem(20rem);  
+      background-image: url('/assets/blue/kok/customer-service/arrow.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      transform: rotate(90deg);
+      transition: transform .2s ease;
+      margin-left: rem(10rem);
+    }
+    .arrow.arrow-rotate{
+      transform: rotate(270deg);
+    }
+    .van-collapse-item--border::after{
+      display: none;
+    }
+    .van-collapse-item__title--expanded::after{
+      display: none;  
+    }
+  }
+}

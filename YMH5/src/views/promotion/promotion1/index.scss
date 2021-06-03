@@ -1,0 +1,100 @@
+@import '@/scss/helpers.scss';
+@import '@temp/theme.scss';
+@import '@site/theme.scss';
+
+.promotion-view {
+  padding-top: rem(92rem);
+  overflow: hidden;
+  .promotion-title{
+    background: $theme-promotion-navbar-bg-color;
+    font-size: rem(32rem);
+    color: #333;
+    text-align: center;
+    height: rem(92rem);
+    line-height: rem(92rem);
+    font-weight: 700;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+  }
+  .van-tabs__nav{
+    padding-left: 0;
+    padding-right: 0;  
+    .van-tab--active{
+      color: $theme-promotion-tab-txt-active-color;
+    }
+  }
+  .van-tabs__line{
+    width: calc(100% / 6); 
+    height: 2PX;
+    background-color: $theme-promotion-tab-line-color; 
+  }
+  .van-nav-bar.van-hairline--bottom::after{
+    content: none;  
+  }
+  .van-tab{
+    font-size: rem(32rem); 
+    color: $theme-promotion-tab-txt-color;  
+  }
+  .van-tabs__wrap{
+    height: rem(100rem);
+  }
+  .van-tab__pane-wrapper{
+    padding: rem(32rem);
+    height: calc(100vh - 0.92rem - 1rem - 1.2rem);
+    overflow: scroll;
+  }
+  .promotion-item{
+    box-shadow: 0 rem(2rem) rem(4rem) 0 rgba(0,0,0,.1);
+    border-radius: .2rem;
+    img{
+      height: rem(270rem);
+      overflow: hidden;
+    }
+  }
+  .promotion-item-type{
+    z-index: 1;
+    display: block;
+    width: rem(96rem);
+    height: rem(42rem);
+    text-align: center;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    top: rem(20rem);
+    left: rem(-10rem);
+    font-size: rem(24rem); 
+    @include webp('/assets/blue/kok/promotion/vip.png');
+    background-position: center;
+    background-size: contain;
+  }
+  .promotion-item-card{
+    overflow: hidden;
+    border-radius: rem(8rem);
+    box-shadow: 0 rem(2rem) rem(4rem) 0 rgba(0,0,0,.1);
+    margin-bottom: rem(32rem);
+  }
+  .promotion-item-title-box{
+    height: rem(80rem);
+    padding: rem(12rem) rem(18rem) rem(8rem) 0;
+    overflow: hidden;
+    background-color: $theme-promotion-card-bg-color;
+    text-align: right;
+    .title{
+      display: block;
+      font-size: rem(26rem);
+      color: $theme-promotion-card-title-color;
+      overflow: hidden;
+      height: rem(36rem);
+      line-height: rem(36rem);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: bold; 
+    }
+    .subtitle{
+      font-size: rem(20rem);
+      color: $theme-promotion-card-subtitle-color;
+    }
+  }
+}

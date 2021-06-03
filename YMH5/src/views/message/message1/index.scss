@@ -1,0 +1,196 @@
+.message {
+  &-edit {
+    right: rem(20rem);
+    top: rem(28rem);
+    line-height: rem(30rem);
+    z-index: 10;
+  }
+  &-tab {
+    top: rem(80rem);
+    height: rem(100rem);
+    z-index: 9;
+    background: map.get($colors, white);
+    border-top: rem(1rem) solid $theme-bd-color;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex: 0 0 33.333%;
+      height: rem(100rem);
+      text-align: center;
+      background-color: map.get($colors, white);
+      color: $theme-txt-color9;
+      &.active {
+        color: $theme-bg-color7;
+        &:after {
+          position: absolute;
+          display: inline-block;
+          content: '';
+          height: rem(4rem);
+          width: rem(88rem);
+          background-color: $theme-bg-color7;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 0);
+        }
+      }
+      p {
+        position: relative;
+        font-size: rem(28rem);
+      }
+      span {
+        position: absolute;
+        min-width: rem(32rem);
+        height: rem(26rem);
+        line-height: rem(24rem);
+        font-size: rem(24rem);
+        background-color: $theme-bg-color11;
+        border-radius: rem(16rem);
+        top: rem(-12rem);
+        left: rem(60rem);
+        color: map.get($colors, white);
+      }
+    }
+  }
+  &-content {
+    padding-top: rem(80rem);
+  }
+  &-more {
+    z-index: 1;
+    left: 0;
+    top: 0;
+    padding-top: rem(204rem);
+    align-items: stretch;
+  }
+  &-list-wrap {
+    transform: translateY(rem(0rem));
+    overflow: auto;
+    padding-bottom: rem(150rem);
+  }
+  &-list-content {
+    background-color: map.get($colors, white);
+    ul {
+      padding: 0 0 0 rem(60rem);
+      padding-left: rem(112rem);
+      transition: 0.3s;
+      li {
+        position: relative;
+        padding: rem(32rem) rem(20rem) rem(32rem) 0;
+        height: rem(140rem);
+        box-sizing: border-box;
+        border-bottom: rem(1rem) solid $theme-bd-color5;
+        img {
+          position: absolute;
+          width: rem(64rem);
+          height: rem(64rem);
+          left: rem(-88rem);
+          top: rem(38rem);
+        }
+        .check {
+          width: rem(36rem);
+          height: rem(36rem);
+          position: absolute;
+          left: rem(-140rem);
+          top: rem(52rem);
+          border-radius: rem(18rem);
+          background-color: map.get($colors, white);
+          background-size: rem(40rem) auto;
+          background-position: center center;
+          border: rem(1rem) solid $theme-bd-color6;
+          box-sizing: border-box;
+        }
+        .active {
+          background-color: $theme-bg-color7;
+          background-image: url(link('/assets/blue/kok/icon-select.png'));
+          border-color: $theme-bg-color7;
+        }
+      }
+      &.message-list-ul {
+        padding-left: rem(160rem);
+      }
+    }
+  }
+  &-list-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    i {
+      position: absolute;
+      top: rem(54rem);
+      right: 0;
+      min-width: rem(16rem);
+      height: rem(16rem);
+      background-color: $theme-bg-color11;
+      border-radius: 50%;
+    }
+    .list-top {
+      &-title {
+        max-width: rem(290rem);
+        font-size: rem(28rem);
+        color: $theme-txt-color;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      &-time {
+        flex: 1;
+        font-size: rem(24rem);
+        color: $theme-txt-color9;
+        text-align: right;
+      }
+    }
+  }
+  &-list-bot {
+    position: relative;
+    margin-top: rem(20rem);
+    width: rem(546rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: rem(24rem);
+    color: $theme-txt-color9;
+  }
+  .cancel-btn,
+  .allcheck-btn {
+    top: rem(28rem);
+    display: block;
+    min-width: rem(60rem);
+    line-height: rem(30rem);
+    background: map.get($colors, white);
+    z-index: 11;
+  }
+  .cancel-btn {
+    left: rem(20rem);
+  }
+  .allcheck-btn {
+    right: rem(20rem);
+  }
+  .fixed-bot {
+    bottom: 0;
+    z-index: 10;
+    height: rem(168rem);
+    background: $theme-bd-color;
+    transform: translateY(100%);
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    span {
+      width: rem(336rem);
+      height: rem(100rem);
+      line-height: rem(100rem);
+      color: $theme-bd-color6;
+      &.is-active {
+        color: $theme-txt-color11;
+      }
+      &.is-delete {
+        color: $theme-txt-color2;
+      }
+    }
+    &-active {
+      transform: translateY(0);
+    }
+  }
+  .no-more {
+    line-height: rem(156rem);
+    color: $theme-txt-color19;
+  }
+}

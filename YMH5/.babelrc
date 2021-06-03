@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "stage-2",
+    [
+      "babel-preset-env",
+      {
+        "targets": {
+          "browsers": ["> 1%", "last 2 version"]
+        } 
+      }
+    ] 
+  ],
+  "plugins": [
+    "transform-runtime",
+    "proposal-class-properties"
+  ]
+}

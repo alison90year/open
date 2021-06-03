@@ -1,0 +1,24 @@
+// 公用头部css
+.header-nav-bar{
+  .van-nav-bar__content{
+    height: rem(90rem);
+    .van-nav-bar__title{
+      font-size: rem(36rem);
+      color: $theme-navbar-txt;
+    }
+  }
+  .header-icon-back{
+    height: rem(36rem);
+    left: rem(20rem);
+    top: rem(24rem);
+  }
+  .van-nav-bar.van-hairline--bottom::after{
+    content: none;  
+  }
+  .van-nav-bar__right{
+    font-size: rem(24rem);
+    .van-nav-bar__text{
+      color: $theme-navbar-right-txt;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YM-H5</title>
+  <style>
+    html {
+      font-size: 13.33333333vw !important;
+    }
+  </style>
+  <!-- 预加载css文件 -->
+  <% for(var i=0;i<htmlWebpackPlugin.files.css.length;i++){%>
+    <link
+      rel="preload"
+      as="style"
+      href="<%= htmlWebpackPlugin.files.css[i] %>"
+    />
+  <% } %>
+  <!-- 预加载js文件 -->
+  <% for(var i=0;i<htmlWebpackPlugin.files.js.length;i++){%>
+    <link
+      rel="preload"
+      as="script"
+      href="<%= htmlWebpackPlugin.files.js[i] %>"
+    />
+  <% } %>
+
+  <!-- 引用css文件 -->
+  <% for(var i=0;i<htmlWebpackPlugin.files.css.length;i++){%>
+    <link
+      rel="stylesheet"
+      href="<%= htmlWebpackPlugin.files.css[i] %>"
+    />
+  <% } %>
+</head>
+<body>
+  <div id="App"></div>
+</body>
+<!-- 引用js文件 -->
+<% for(var i=0;i<htmlWebpackPlugin.files.js.length;i++){%>
+  <script
+    type="text/javascript"
+    src="<%= htmlWebpackPlugin.files.js[i] %>"
+  ></script>
+<% } %>
+</html>

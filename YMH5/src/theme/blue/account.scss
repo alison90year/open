@@ -1,0 +1,213 @@
+.first-nav {
+  display: flex;
+  align-items: center;
+  height: rem(100rem);
+  padding-left: rem(30rem);
+  background: map.get($colors, white);
+  &:last-child {
+    .first-nav-title {
+      border: none;
+    }
+  }
+  &-icon {
+    width: rem(48rem);
+    height: auto;
+    margin-right: rem(22rem);
+  }
+  &-title {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    border-bottom: rem(1rem) solid $theme-bd-color3;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: rem(34rem);
+    span {
+      font-size: rem(28rem);
+      color: $theme-txt-color14;
+    }
+  }
+  &-label {
+    display: flex;
+    align-items: center;
+    font-size: rem(24rem);
+    color: $theme-txt-color15;
+    i {
+      display: inline-block;
+      width: rem(32rem);
+      height: rem(32rem);
+      margin-left: rem(10rem);
+      background: url(link('/assets/blue/kok/help/arrow.png')) no-repeat;
+      background-size: cover;
+    }
+  }
+}
+.help {
+  .help-wrap {
+    height: 0;
+    &.active {
+      height: auto;
+    }
+  }
+  .help-tip {
+    margin-top: rem(48rem);
+    color: $theme-txt-color20;
+    padding-bottom: rem(60rem);
+    a {
+      color: $theme-bg-color7;
+      font-weight: 600;
+    }
+  }
+  .close {
+    display: none;
+  }
+  .active {
+    .close {
+      display: block;
+    }
+  }
+}
+.phone-form {
+  background-color: #fff;
+  border-top: rem(1rem) solid $theme-bd-color;
+  &-message {
+    height: rem(70rem);
+    line-height: rem(70rem);
+    margin: 0 rem(28rem);
+    color: $theme-warning-color75;
+  }
+  &-item {
+    height: rem(154rem);
+    margin: 0 rem(28rem);
+    padding-top: rem(30rem);
+    overflow: hidden;
+    border-bottom: rem(1rem) solid $theme-bd-color;
+  }
+  .pad0 {
+    padding: 0;
+  }
+  &-title {
+    margin-top: rem(30rem);
+    height: rem(40rem);
+    color: $theme-txt-color;
+  }
+  &-code {
+    border-bottom: rem(1rem) solid $theme-bd-color;
+  }
+  &-delete {
+    display: block;
+    width: rem(24rem);
+    height: rem(24rem);
+  }
+  &-see,
+  &-nosee {
+    margin-left: rem(10rem);
+    width: rem(40rem);
+    height: rem(40rem);
+  }
+  .input-wrap {
+    margin-top: rem(4rem);
+    height: rem(50rem);
+    input {
+      display: block;
+      width: 0%;
+      color: $theme-txt-color;
+      line-height: rem(50rem);
+      border: 0 none;
+      outline: none;
+      padding: 0;
+    }
+  }
+
+  .pro-wrap {
+    margin-top: rem(20rem);
+
+    div {
+      width: rem(158rem);
+      height: rem(70rem);
+      margin-right: rem(20rem);
+      border-radius: rem(10rem);
+      border: rem(1rem) solid $theme-bd-color;
+      line-height: rem(70rem);
+      color: $theme-txt-color;
+      &.active {
+        color: $theme-bg-color7;
+        border: rem(1rem) solid $theme-bg-color7;
+        span {
+          position: absolute;
+          right: rem(-2rem);
+          width: rem(34rem);
+          height: rem(32rem);
+          bottom: rem(-2rem);
+          background: url(link('/assets/blue/kok/account/jiaobiao.webp')) no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+    }
+  }
+  input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: $theme-pld-color;
+  }
+  input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: $theme-pld-color;
+  }
+  input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: $theme-pld-color;
+  }
+  input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: $theme-pld-color;
+  }
+  .code-btn {
+    margin-left: rem(20rem);
+    line-height: rem(60rem);
+    min-width: rem(200rem);
+    color: #fff;
+    background-color: $theme-code-color;
+    border-radius: rem(10rem);
+    outline: none;
+    &.active {
+      background-color: $theme-txt-color11;
+    }
+  }
+}
+.submit {
+  display: block;
+  width: rem(694rem);
+  height: rem(90rem);
+  margin: rem(40rem) auto;
+  color: #fff;
+  background-color: $theme-code-color;
+  outline: none;
+  border: none;
+  border-radius: rem(10rem);
+  font-family: DINPro;
+  &.active {
+    background-color: $theme-bg-color7;
+  }
+}
+.phone-finish {
+  right: rem(20rem);
+  top: rem(4rem);
+  color: $theme-pld-color;
+  &.finised {
+    color: $theme-txt-color31;
+  }
+}
+.phone-footer {
+  margin-top: rem(48rem);
+  p {
+    margin-bottom: rem(12rem);
+    line-height: rem(34rem);
+    color: $theme-txt-color20;
+  }
+  a {
+    color: $theme-txt-color11;
+  }
+}
+.add-bank .pro-item {
+  height: rem(180rem) !important;
+}

@@ -1,0 +1,55 @@
+@import '@/scss/helpers.scss';
+@import '@temp/theme.scss';
+@import '@site/theme.scss';
+.vip-view{
+  .van-nav-bar{
+    background: transparent;
+    position: absolute;
+    width: 100%;
+    top:0;
+    z-index: 1;
+  }
+  .van-nav-bar.van-hairline--bottom::after{
+    content: none;  
+  }
+  .van-nav-bar__text{
+    color: $theme-vip-navbar-right-txt;
+    font-size: rem(24rem);  
+  }
+
+  .vip-top{
+    background-color: $theme-vip-top-bg;  
+  }
+  .birthday{
+    width: 100%;
+    padding-bottom: rem(56rem);
+    background: $theme-vip-birthday-bg;
+    .birthday-bg{
+      margin: 0 rem(40rem);
+      background-color: $theme-vip-birthday-inner-bg;
+      border-radius: rem(84rem); 
+    }
+    .birthday-pic{
+      img{
+        width: rem(40rem);
+        margin: 0 rem(8rem);
+      }
+      span{
+        font-size: rem(24rem);
+      }  
+    }
+    .van-button{
+      width: rem(132rem);
+      height: rem(48rem);
+      font-size: rem(24rem);
+      margin-right: rem(24rem);
+      line-height: rem(44rem);
+      text-align: center;
+      color: $theme-vip-birthday-button-txt;
+      border: 1PX solid $theme-vip-birthday-button-bd;
+      border-radius: rem(44rem);
+      padding: 0; 
+      background-color: $theme-vip-birthday-button-bg; 
+    }  
+  }
+}

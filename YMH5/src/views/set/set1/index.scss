@@ -1,0 +1,26 @@
+.system-list {
+  background-color: map.get($colors, white);
+  margin-top: rem(20rem);
+  padding-left: rem(36rem);
+  .system-nav {
+    height: auto;
+    padding: rem(28rem) rem(36rem) rem(28rem) 0;
+    background: map.get($colors, white);
+    border-bottom: rem(1rem) solid $theme-bd-color11;
+    &:last-child {
+      border: none;
+    }
+  }
+  .system-title {
+    padding: 0;
+    border: none;
+    height: auto;
+  }
+}
+.system-quit {
+  margin-top: rem(20rem);
+  border-radius: 0;
+  padding: rem(36rem);
+  background: map.get($colors, white);
+  color: $theme-txt-color17;
+}

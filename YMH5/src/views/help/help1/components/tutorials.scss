@@ -1,0 +1,19 @@
+.help-wrap {
+  span {
+    $icons: 'daechongzhi', 'alipay', 'alipaylixian', 'alipayTransfer', 'onlineTransfer', 'xuniPay', 'dkpay', 'mb', 'yunshanfu';
+    @each $i in $icons {
+      &.icon-#{$i} {
+        background: url(link('/assets/blue/kok/help/' + $i + '.webp')) center no-repeat;
+        background-size: 100%;
+      }
+    }
+  }
+  .step-wrap {
+    top: rem(120rem);
+    background-color: map.get($colors, white);
+  }
+  .step-index {
+    padding: rem(60rem) 0 rem(40rem) 0;
+    color: $theme-txt-color17;
+  }
+}
