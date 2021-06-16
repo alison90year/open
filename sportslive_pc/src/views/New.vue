@@ -82,19 +82,19 @@
       </div></div>
 
     </div>
-    <footerbar></footerbar>
+    <FootBar></FootBar>
   </div>
 
 </template>
 
 <script>
-import footerbar from "@/components/footerbar.vue";
+import FootBar from "@/components/footerbar.vue";
 import {Collect,detail,commentlst,comment} from '@/api'
 
 export default {
   name: "New",
   components: {
-
+    FootBar
   },
   data() {
     return {
@@ -107,9 +107,9 @@ export default {
   },
   filters: {
     formatDate: function (value) {
-      var value=Number(value+'000');
+      var src=Number(value+'000');
       //console.log(value);
-      let date = new Date(value);
+      let date = new Date(src);
       let y = date.getFullYear();
       let MM = date.getMonth() + 1;
       MM = MM < 10 ? ('0' + MM) : MM;
