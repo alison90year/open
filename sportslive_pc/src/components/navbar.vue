@@ -575,14 +575,14 @@ export default {
         console.log(user);
       }
       // console.log(window.localStorage.getItem("isLogin"))
-      if (
-        window.localStorage.getItem("isLogin") == null &&
-        window.localStorage.getItem("isLogin") == true
-      ) {
-        this.isLogin = true;
-      } else {
-        this.isLogin = window.localStorage.getItem("isLogin");
-      }
+      // if (
+      //   window.localStorage.getItem("isLogin") == null &&
+      //   window.localStorage.getItem("isLogin") == true
+      // ) {
+      //   this.isLogin = true;
+      // } else {
+      //   this.isLogin = window.localStorage.getItem("isLogin");
+      // }
 
       // console.log(this.isLogin)
     },

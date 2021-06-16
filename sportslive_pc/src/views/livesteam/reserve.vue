@@ -175,9 +175,9 @@ export default {
     };
   },
   mounted() {
-    this.user = JSON.parse(window.localStorage.getItem("user"));
+    this.user = window.localStorage.getItem("user") ?JSON.parse(window.localStorage.getItem("user")) : '';
     this.token = window.localStorage.token;
-    this.getmentList();
+      this.getmentList();
   },
   methods: {
     appointclick(item, index) {
@@ -242,7 +242,7 @@ export default {
       };
       AppointmentList(params).then((res) => {
         this.datalist = [];
-        console.log(res);
+        console.log(res,'4444');
         res.info.map((item) => {
           console.log(item, "-----------------");
           // var date = new Date(item.addtime * 1000); //时间戳为10位需*1000，时间戳为13位的话不需乘1000

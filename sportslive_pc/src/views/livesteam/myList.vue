@@ -249,11 +249,13 @@ export default {
     };
   },
   mounted() {
-    this.user = JSON.parse(window.localStorage.getItem("user"));
+    this.user =window.localStorage.getItem("user") ? JSON.parse(window.localStorage.getItem("user")):'' ;
     this.token = window.localStorage.getItem("token");
     console.log(this.token);
-    this.getanchorlist();
-    this.getgoldmaster();
+    this.$nextTick(() => {
+      this.getanchorlist();
+      this.getgoldmaster();
+    })
   },
   methods: {
     anchorclick(item, index) {
@@ -272,6 +274,7 @@ export default {
       this.goldIndex = index;
     },
     getanchorlist(type) {
+      console.log(this.user,'899')
       //主播榜
       const params = {
         uid: this.user.id,

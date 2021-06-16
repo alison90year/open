@@ -7,6 +7,9 @@ module.exports = {
     outputDir: "dist",
     assetsDir: "assets",
     lintOnSave: false,
+    configureWebpack: {
+        devtool: 'cheap-module-eval-source-map'
+    },
     devServer: {
         port: 82,
         proxy: {
@@ -22,8 +25,7 @@ module.exports = {
             }
         }
     },
-
     chainWebpack: (config) => {
         config.resolve.alias.set('@', resolve('src')).set('api', resolve('src/api')).set('_s', resolve('src/server'))
-    }
+    },
 };

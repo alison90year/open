@@ -5,10 +5,8 @@
         <el-col :span="12">
           <h4 style="background-color: white;padding: 20px">资料库</h4>
           <el-menu
-
               class="el-menu-vertical-demo"
-              @open="handleOpen"
-              @close="handleClose">
+          >
             <!--            <el-submenu index="1">-->
             <!--              <template slot="title">-->
             <!--                <i class="el-icon-football"></i>-->
@@ -298,10 +296,11 @@ export default {
   },
   created() {
     if (this.$route.query.key == 'lst') {
-      this.seasonlster()
-      this.seasoner()
-      this.moshi = 'lst'
-
+     this.$nextTick(() => {
+       this.seasonlster()
+       this.seasoner()
+       this.moshi = 'lst'
+     })
     } else {
       this.moshi = ''
       this.seasoner()
@@ -314,14 +313,17 @@ export default {
   },
 
   methods: {
+    handleClick(){
+      console.log('handleClick')
+    },
     async seasonlster() {
       let res = await seasonlst();
       this.seasonlst = res;
       this.is_load = 0
-      setTimeout(function () {
+      if( document.getElementById("homer") && document.getElementById("changhezi")){
         document.getElementById("homer").offsetHeight = document.getElementById("changhezi").offsetHeight + 100;
-      }, 800);
-      this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
+        this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
+      }
     },
     async seasonscore() {
       let data = {
@@ -366,14 +368,14 @@ export default {
         console.log(res)
       }
       setTimeout(function () {
-        document.getElementById("homer").offsetHeight = document.getElementById("changhezi").offsetHeight + 30;
+
       }, 900);
-      this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
+      if(document.getElementById("homer") &&  document.getElementById("changhezi")){
+        document.getElementById("homer").offsetHeight = document.getElementById("changhezi").offsetHeight + 30;
+        this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
+      }
     },
     async teamdetailer(qid) {
-      //console.log(qid)
-
-
       this.teamid = qid
       let data = {
         "qid": this.teamid

@@ -1,205 +1,233 @@
-
 <template>
 
   <div class="view-container" view-id="44576">
-    <h1 style="width: 0px; height: 0px; opacity: 0;">{{news.title}}</h1><div class="main-content">
-    <div style="height: 70px"></div>
-    <!--轮播图 -->
-    <div class="article el-tabs--border-card">
-      <div class="mod18"><span id="prev" style="background-color: rgba(0, 0, 0, 0.7);" class="btn prev"></span><span id="next" style="background-color: rgba(0, 0, 0, 0.7);" class="btn next"></span> <span id="prevTop" class="btn prev" style="display: none;"></span> <span id="nextTop" style="display: none;" class="btn next"></span>
-        <div id="picBox" class="picBox">
-          <ul class="cf" ref="picBoxULref">
-            <li  v-for="(item, index) in newlst"   ref="picBoxLIref" @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-              <a href="#"><img style="width: 884px;" :src='item.thumb' alt=""></a>
-              <span>{{ item.title}}</span>
-            </li>
-          </ul>
+    <h1 style="width: 0; height: 0; opacity: 0;">{{ news.title }}</h1>
+    <div class="main-content">
+      <div style="height: 70px"></div>
+      <!--轮播图 -->
+      <div class="article el-tabs--border-card">
+        <div class="mod18"><span id="prev" style="background-color: rgba(0, 0, 0, 0.7);" class="btn prev"></span><span
+            id="next" style="background-color: rgba(0, 0, 0, 0.7);" class="btn next"></span> <span id="prevTop"
+                                                                                                   class="btn prev"
+                                                                                                   style="display: none;"></span>
+          <span id="nextTop" style="display: none;" class="btn next"></span>
+          <div id="picBox" class="picBox">
+            <ul class="cf" ref="picBoxULref">
+              <li v-for="(item, index) in newlst" ref="picBoxLIref"
+                  @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+                <a href="#"><img style="width: 884px;" :src='item.thumb' alt=""></a>
+                <span>{{ item.title }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div id="listBox" class="listBox">
+            <ul class="cf" ref="listBoxULref">
+              <li class="on" v-for="(item, index) in newlst" ref="listBoxLIref"
+                  style="display: flex;justify-content: flex-start">
+                <i class="arr2"></i><a href="#"><img style="width: 100%;height:100%;" :src='item.thumb' alt=""></a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+
+      <div class="article">
+        <el-tabs type="border-card" @tab-click="changetype">
+          <el-tab-pane name="" label="全部">
+            <div v-for="item in news" :key="item.id" style="margin:15px;cursor:pointer">
+              <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden">
+                <img width="100%" :src="item.thumb"
+                     @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})"></div>
+              <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
+                <div slot="header" class="clearfix"
+                     @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+                  <span style="font-weight:bold;">{{ item.title.substring(0, 28) }}</span>
+                  <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
+                </div>
+                <div class="text item" style="color:gray ;font-size: 15px"
+                     @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+                  {{ item.content.substring(0, 95) + '....' }}
+                  <p>{{ item.addtime }}</p>
+                </div>
+              </el-card>
+            </div>
+            <el-pagination
+                background
+                @current-change="yeChange"
+                layout="prev, pager, next"
+                :total="total">
+            </el-pagination>
+          </el-tab-pane>
+          <el-tab-pane name="足球" label="足球">
+            <div v-for="item in zqlst" :key="item.id" style="margin:15px;cursor:pointer"
+                 @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+
+              <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden">
+                <img width="100%" :src="item.thumb"></div>
+              <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
+                <div slot="header" class="clearfix">
+                  <span style="font-weight:bold;">{{ item.title.substring(0, 28) }}</span>
+                  <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
+                </div>
+                <div class="text item" style="color:gray ;font-size: 15px">
+                  {{ item.content.substring(0, 95) + '....' }}
+                  <p>{{ item.addtime }}</p>
+                </div>
+              </el-card>
+
+            </div>
+          </el-tab-pane>
+          <el-tab-pane name="篮球" label="篮球">
+            <div v-for="item in lqlst" :key="item.id" style="margin:15px;cursor:pointer"
+                 @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+
+              <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden">
+                <img width="100%" :src="item.thumb"></div>
+              <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
+                <div slot="header" class="clearfix">
+                  <span style="font-weight:bold;">{{ item.title.substring(0, 28) }}</span>
+                  <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
+                </div>
+                <div class="text item" style="color:gray ;font-size: 15px">
+                  {{ item.content.substring(0, 95) + '....' }}
+                  <p>{{ item.addtime }}</p>
+                </div>
+              </el-card>
+
+            </div>
+          </el-tab-pane>
+          <el-tab-pane name="新闻" label="新闻">
+            <div v-for="item in xwlst" :key="item.id" style="margin:15px;cursor:pointer"
+                 @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+
+              <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden">
+                <img width="100%" :src="item.thumb"></div>
+              <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
+                <div slot="header" class="clearfix">
+                  <span style="font-weight:bold;">{{ item.title.substring(0, 28) }}</span>
+                  <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
+                </div>
+                <div class="text item" style="color:gray ;font-size: 15px">
+                  {{ item.content.substring(0, 95) + '....' }}
+                  <p>{{ item.addtime }}</p>
+                </div>
+              </el-card>
+
+            </div>
+          </el-tab-pane>
+          <el-tab-pane name="公告" label="公告">
+            <div v-for="item in gglst" :key="item.id" style="margin:15px;cursor:pointer"
+                 @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+
+              <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden">
+                <img width="100%" :src="item.thumb"></div>
+              <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
+                <div slot="header" class="clearfix">
+                  <span style="font-weight:bold;">{{ item.title.substring(0, 28) }}</span>
+                  <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
+                </div>
+                <div class="text item" style="color:gray ;font-size: 15px">
+                  {{ item.content.substring(0, 95) + '....' }}
+                  <p>{{ item.addtime }}</p>
+                </div>
+              </el-card>
+
+            </div>
+          </el-tab-pane>
+
+          <el-tab-pane name="电竞" label="电竞">
+            <div v-for="item in djlst" :key="item.id" style="margin:15px;cursor:pointer"
+                 @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+
+              <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden">
+                <img width="100%" :src="item.thumb"></div>
+              <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
+                <div slot="header" class="clearfix">
+                  <span style="font-weight:bold;">{{ item.title.substring(0, 28) }}</span>
+                  <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
+                </div>
+                <div class="text item" style="color:gray ;font-size: 15px">
+                  {{ item.content.substring(0, 95) + '....' }}
+                  <p>{{ item.addtime }}</p>
+                </div>
+              </el-card>
+
+            </div>
+          </el-tab-pane>
+          <el-tab-pane name="NBA" label="NBA">
+            <div v-for="item in nba" :key="item.id" style="margin:15px;cursor:pointer"
+                 @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+
+              <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden">
+                <img width="100%" :src="item.thumb"></div>
+              <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
+                <div slot="header" class="clearfix">
+                  <span style="font-weight:bold;">{{ item.title.substring(0, 28) }}</span>
+                  <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
+                </div>
+                <div class="text item" style="color:gray ;font-size: 15px">
+                  {{ item.content.substring(0, 95) + '....' }}
+                  <p>{{ item.addtime }}</p>
+                </div>
+              </el-card>
+
+            </div>
+          </el-tab-pane>
+          <el-tab-pane name="CBA" label="CBA">
+            <div v-for="item in cba" :key="item.id" style="margin:15px;cursor:pointer"
+                 @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+
+              <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden">
+                <img width="100%" :src="item.thumb"></div>
+              <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
+                <div slot="header" class="clearfix">
+                  <span style="font-weight:bold;">{{ item.title.substring(0, 28) }}</span>
+                  <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
+                </div>
+                <div class="text item" style="color:gray ;font-size: 15px">
+                  {{ item.content.substring(0, 95) + '....' }}
+                  <p>{{ item.addtime }}</p>
+                </div>
+              </el-card>
+
+            </div>
+          </el-tab-pane>
+        </el-tabs>
+
+
+      </div>
+
+
+    </div>
+    <div class="other-info">
+      <div class="hot-match">
+        <div class="head">
+          <div class="red-line"></div>
+          <div class="title">热点赛事</div>
+          <div class="space-holder"></div>
+          <div class="split-line"></div>
         </div>
 
-        <div id="listBox" class="listBox">
-          <ul class="cf" ref="listBoxULref">
-            <li class="on" v-for="(item, index) in newlst"  ref="listBoxLIref" style="display: flex;justify-content: flex-start">
-              <i class="arr2"></i><a href="#"><img style="width: 100%;height:100%;" :src='item.thumb' alt=""></a>
-            </li>
 
-          </ul>
+      </div>
+
+      <div class="relative-news" style="margin-top: 20px;">
+        <div class="head">
+          <div class="red-line" style="background-color: #03a9f4;"></div>
+          <div class="title" style="width:160px">资讯热点 &nbsp;&nbsp;&nbsp;</div>
+          <div class="space-holder"></div>
+
         </div>
-        <div class="clear"></div>
-      </div>
-    </div>
-
-    <div class="article">
-      <el-tabs type="border-card" @tab-click="changetype">
-        <el-tab-pane name="" label="全部" >
-          <div v-for="item in news" :key="item" style="margin:15px;cursor:pointer">
-            <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden" >
-              <img width="100%" :src="item.thumb" @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})"></div>
-            <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
-              <div slot="header" class="clearfix"  @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-                <span style="font-weight:bold;">{{item.title.substring(0,28)}}</span>
-                <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
-              </div>
-              <div  class="text item" style="color:gray ;font-size: 15px"  @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-                {{item.content.substring(0,95)+'....'}}
-                <p>{{item.addtime}}</p>
-              </div>
-            </el-card>
-          </div>
-          <el-pagination
-              background
-              @current-change="yeChange"
-              layout="prev, pager, next"
-              :total="total">
-          </el-pagination>
-        </el-tab-pane>
-        <el-tab-pane name="足球" label="足球">
-          <div v-for="item in zqlst" :key="item" style="margin:15px;cursor:pointer"  @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-
-            <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden" >
-              <img width="100%" :src="item.thumb"></div>
-            <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
-              <div slot="header" class="clearfix">
-                <span style="font-weight:bold;">{{item.title.substring(0,28)}}</span>
-                <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
-              </div>
-              <div  class="text item" style="color:gray ;font-size: 15px">
-                {{item.content.substring(0,95)+'....'}}
-                <p>{{item.addtime}}</p>
-              </div>
-            </el-card>
-
-          </div>
-        </el-tab-pane>
-        <el-tab-pane name="篮球" label="篮球">
-          <div v-for="item in lqlst" :key="item" style="margin:15px;cursor:pointer" @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-
-            <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden" >
-              <img width="100%" :src="item.thumb"></div>
-            <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
-              <div slot="header" class="clearfix">
-                <span style="font-weight:bold;">{{item.title.substring(0,28)}}</span>
-                <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
-              </div>
-              <div  class="text item" style="color:gray ;font-size: 15px">
-                {{item.content.substring(0,95)+'....'}}
-                <p>{{item.addtime}}</p>
-              </div>
-            </el-card>
-
-          </div></el-tab-pane>
-        <el-tab-pane name="新闻" label="新闻">
-          <div v-for="item in xwlst" :key="item" style="margin:15px;cursor:pointer" @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-
-            <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden" >
-              <img width="100%" :src="item.thumb"></div>
-            <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
-              <div slot="header" class="clearfix">
-                <span style="font-weight:bold;">{{item.title.substring(0,28)}}</span>
-                <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
-              </div>
-              <div  class="text item" style="color:gray ;font-size: 15px">
-                {{item.content.substring(0,95)+'....'}}
-                <p>{{item.addtime}}</p>
-              </div>
-            </el-card>
-
-          </div>
-        </el-tab-pane>
-        <el-tab-pane name="公告" label="公告">
-          <div v-for="item in gglst" :key="item" style="margin:15px;cursor:pointer" @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-
-            <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden" >
-              <img width="100%" :src="item.thumb"></div>
-            <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
-              <div slot="header" class="clearfix">
-                <span style="font-weight:bold;">{{item.title.substring(0,28)}}</span>
-                <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
-              </div>
-              <div  class="text item" style="color:gray ;font-size: 15px">
-                {{item.content.substring(0,95)+'....'}}
-                <p>{{item.addtime}}</p>
-              </div>
-            </el-card>
-
-          </div>
-        </el-tab-pane>
-
-        <el-tab-pane name="电竞" label="电竞">
-          <div v-for="item in djlst" :key="item" style="margin:15px;cursor:pointer" @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-
-            <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden" >
-              <img width="100%" :src="item.thumb"></div>
-            <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
-              <div slot="header" class="clearfix">
-                <span style="font-weight:bold;">{{item.title.substring(0,28)}}</span>
-                <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
-              </div>
-              <div  class="text item" style="color:gray ;font-size: 15px">
-                {{item.content.substring(0,95)+'....'}}
-                <p>{{item.addtime}}</p>
-              </div>
-            </el-card>
-
-          </div>
-        </el-tab-pane>
-        <el-tab-pane name="NBA" label="NBA">
-          <div v-for="item in nba" :key="item" style="margin:15px;cursor:pointer" @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-
-            <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden" >
-              <img width="100%" :src="item.thumb"></div>
-            <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
-              <div slot="header" class="clearfix">
-                <span style="font-weight:bold;">{{item.title.substring(0,28)}}</span>
-                <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
-              </div>
-              <div  class="text item" style="color:gray ;font-size: 15px">
-                {{item.content.substring(0,95)+'....'}}
-                <p>{{item.addtime}}</p>
-              </div>
-            </el-card>
-
-          </div>
-        </el-tab-pane>
-        <el-tab-pane name="CBA" label="CBA">    <div v-for="item in cba" :key="item" style="margin:15px;cursor:pointer" @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-
-          <div style="border-radius: 4px;width: 34%;height:158px;overflow:hidden" >
-            <img width="100%" :src="item.thumb"></div>
-          <el-card class="box-card" style="width: 65%;float:right;margin-top: -152px;">
-            <div slot="header" class="clearfix">
-              <span style="font-weight:bold;">{{item.title.substring(0,28)}}</span>
-              <el-button style="float: right; padding: 3px 0;color:#1E90FF;" type="text">♥点赞</el-button>
-            </div>
-            <div  class="text item" style="color:gray ;font-size: 15px">
-              {{item.content.substring(0,95)+'....'}}
-              <p>{{item.addtime}}</p>
-            </div>
-          </el-card>
-
-        </div></el-tab-pane>
-      </el-tabs>
-
-
-    </div>
-
-
-  </div>
-    <div class="other-info">  <div class="hot-match">
-      <div class="head" ><div class="red-line"></div><div class="title">热点赛事</div><div class="space-holder"></div>
-        <div class="split-line"></div></div>
-
-
-    </div>
-
-      <div class="relative-news" style="margin-top: 20px;"><div class="head"><div class="red-line" style="background-color: #03a9f4;"></div><div class="title" style="width:160px">资讯热点 &nbsp;&nbsp;&nbsp;</div>
-        <div class="space-holder"></div>
-
-      </div>
         <div class="list" style="margin: 20px;cursor:pointer">
-          <div v-for="item in collect" :key="item" style="cursor:pointer;margin-bottom: 10px"  @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
-            <div style="border-radius: 2px;width: 90%;height:140px;overflow:hidden" >
+          <div v-for="item in collect" :key="item.id" style="cursor:pointer;margin-bottom: 10px"
+               @click="$router.push({name: 'New', params: {key: 'newid', value: item.id }})">
+            <div style="border-radius: 2px;width: 90%;height:140px;overflow:hidden">
               <img width="100%" :src="item.thumb"></div>
-            <p style="margin: 5px 0;font-size: 14px;width: 90%">{{item.title}}</p>
-            <p style="margin: 5px 0;font-size: 12px"> {{item.newaddtime}}</p>
+            <p style="margin: 5px 0;font-size: 14px;width: 90%">{{ item.title }}</p>
+            <p style="margin: 5px 0;font-size: 12px"> {{ item.newaddtime }}</p>
             <!--            <el-divider></el-divider>-->
           </div>
           <!--            <p v-html = 'collect.content'></p>-->
@@ -214,8 +242,9 @@
 
 <script>
 
-import {Collect,zixunlst,newtype,Getnewlst} from '@/api'
+import {Collect, zixunlst, newtype, Getnewlst} from '@/api'
 import footerbar from "@/components/footerbar.vue";
+
 export default {
   name: "Newlst",
   components: {
@@ -223,29 +252,29 @@ export default {
   },
   data() {
     return {
-      newlst:[],
-      news:[],
-      collect:'',
-      total:0,
-      lqlst:[],
-      zqlst:[],
-      xwlst:[],
-      gglst:[],
-      djlst:[],
-      nba:[],
-      cba:[],
-      type:'',
-      yema:1,
-      transition:"",
-      w1:884,
-      w2:127,
-      newArr:[]
+      newlst: [],
+      news: [],
+      collect: '',
+      total: 0,
+      lqlst: [],
+      zqlst: [],
+      xwlst: [],
+      gglst: [],
+      djlst: [],
+      nba: [],
+      cba: [],
+      type: '',
+      yema: 1,
+      transition: "",
+      w1: 884,
+      w2: 127,
+      newArr: []
     };
   },
   filters: {
     formatDate: function (value) {
-      var value=Number(value);
-      let date = new Date(value);
+      let str = Number(value);
+      let date = new Date(str);
       let y = date.getFullYear();
       let MM = date.getMonth() + 1;
       MM = MM < 10 ? ('0' + MM) : MM;
@@ -258,7 +287,7 @@ export default {
       let s = date.getSeconds();
       s = s < 10 ? ('0' + s) : s;
 
-      return y + '-'+ MM + '-' + d + ' ' + h + ':' + m ;
+      return y + '-' + MM + '-' + d + ' ' + h + ':' + m;
     }
   },
 
@@ -272,7 +301,7 @@ export default {
     // window.this = this
     // this.rollgig()
 
-    this.$nextTick(function() {
+    this.$nextTick(function () {
       this.rollgig()
       // console.log(this.$refs.picBoxLIref)
     })
@@ -281,59 +310,59 @@ export default {
 
   methods: {
     //右侧资讯热点
-    async collecter(){
+    async collecter() {
 
       let res = await Collect();
-      this.collect=res;
-      this.newlst=res;
+      this.collect = res;
+      this.newlst = res;
       // console.log(res)
-      for(let i=0;i<this.collect.length;i++){
+      for (let i = 0; i < this.collect.length; i++) {
         // console.log(Date.parse(this.collect[i].addtime))
         // this.newArr = this.collect[i].push({'newaddtime':this.$options.filters['formatDate'] (Date.parse(this.collect[i].addtime))})
-        this.collect[i]['newaddtime'] = this.$options.filters['formatDate'] (Date.parse(this.collect[i].addtime))
+        this.collect[i]['newaddtime'] = this.$options.filters['formatDate'](Date.parse(this.collect[i].addtime))
       }
 
     },
-    async newlister(){
+    async newlister() {
       let data = {
-        "yema":this.yema
+        "yema": this.yema
       }
       let res = await zixunlst(data);
-      this.news=res;
-      this.total=res[0].total;
+      this.news = res;
+      this.total = res[0].total;
     },
 
-    async newtypeer(){
+    async newtypeer() {
       let data = {
-        "type":this.type
+        "type": this.type
       }
       let res = await newtype(data);
-      if(this.type=='足球'){
-        this.zqlst=res
-      }else if(this.type=='篮球'){
-        this.lqlst=res
-      }else if(this.type=='新闻'){
-        this.xwlst=res
-      }else if(this.type=='公告'){
-        this.gglst=res
-      }else if(this.type=='电竞'){
-        this.djlst=res
-      }else if(this.type=='NBA'){
-        this.nba=res
-      }else if(this.type=='CBA'){
-        this.cba=res
-      }else{
-        this.news=res;
-        this.total=res[0].total;
+      if (this.type == '足球') {
+        this.zqlst = res
+      } else if (this.type == '篮球') {
+        this.lqlst = res
+      } else if (this.type == '新闻') {
+        this.xwlst = res
+      } else if (this.type == '公告') {
+        this.gglst = res
+      } else if (this.type == '电竞') {
+        this.djlst = res
+      } else if (this.type == 'NBA') {
+        this.nba = res
+      } else if (this.type == 'CBA') {
+        this.cba = res
+      } else {
+        this.news = res;
+        this.total = res[0].total;
       }
     },
-    async seasoner(){
+    async seasoner() {
 
       let res = await Season();
-      this.season=res;
+      this.season = res;
 
     },
-    async getnewlster(){
+    async getnewlster() {
       let res = await Getnewlst();
       // this.newlst=res;
       // this.rollgig()
@@ -342,73 +371,71 @@ export default {
       //   console.log(this.newlst[i].thumb)
       // }
     },
-    changetype:function (val){
+    changetype: function (val) {
       //console.log(val.name);
-      let _this=this;
+      let _this = this;
 
-      if(val.name=='足球'){
-        this.type="足球";
+      if (val.name == '足球') {
+        this.type = "足球";
         this.newtypeer()
 
-      }else if(val.name=='篮球'){
-        this.type="篮球";
+      } else if (val.name == '篮球') {
+        this.type = "篮球";
         this.newtypeer()
-      }else if(val.name=='新闻'){
-        this.type="新闻";
+      } else if (val.name == '新闻') {
+        this.type = "新闻";
         this.newtypeer()
-      }else if(val.name=='公告'){
-        this.type="公告";
+      } else if (val.name == '公告') {
+        this.type = "公告";
         this.newtypeer()
-      }else if(val.name=='电竞'){
-        this.type="电竞";
+      } else if (val.name == '电竞') {
+        this.type = "电竞";
         this.newtypeer()
-      }else if(val.name=='NBA'){
-        this.type="NBA";
+      } else if (val.name == 'NBA') {
+        this.type = "NBA";
         this.newtypeer()
-      }else if(val.name=='CBA'){
-        this.type="CBA";
+      } else if (val.name == 'CBA') {
+        this.type = "CBA";
         this.newtypeer()
-      }else{
+      } else {
         this.newlister()
       }
 
     },
-    yeChange(value){
+    yeChange(value) {
 
-      this.yema=value;
+      this.yema = value;
       this.newlister()
     },
-    rollgig(){
+    rollgig() {
       // this.transition = t
 
 
-
-
-      function G(s){
+      function G(s) {
         return document.getElementById(s);
       }
 
-      function getStyle(obj, attr){
-        if(obj.currentStyle){
+      function getStyle(obj, attr) {
+        if (obj.currentStyle) {
           return obj.currentStyle[attr];
-        }else{
+        } else {
           return window.getComputedStyle(obj, false)[attr];
         }
       }
 
-      function Animate(obj, json){
-        if(obj.timer){
+      function Animate(obj, json) {
+        if (obj.timer) {
           clearInterval(obj.timer);
         }
-        obj.timer = setInterval(function(){
+        obj.timer = setInterval(function () {
           // console.log()
-          for(var attr in json){
+          for (var attr in json) {
             var iCur = parseInt(getStyle(obj, attr));
             iCur = iCur ? iCur : 0;
             var iSpeed = (json[attr] - iCur) / 5;
             iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
             obj.style[attr] = iCur + iSpeed + 'px';
-            if(iCur == json[attr]){
+            if (iCur == json[attr]) {
               clearInterval(obj.timer);
             }
           }
@@ -432,7 +459,7 @@ export default {
       var oListUl = oList.getElementsByTagName("ul")[0];
 
 
-      this.$nextTick(res=>{
+      this.$nextTick(res => {
         // if(this.$refs.picBoxLIref[1].clientWidth !== undefined ){
         //   this.w1 = (this.$refs.picBoxLIref[1].clientWidth)
         //   // console.log(this.w1)
@@ -459,55 +486,56 @@ export default {
       let num2 = Math.ceil(num / 2);
       console.log(num2)
       let that = this
-      function Change(){
 
-        Animate(oPicUl, {left: - index * that.w1});
+      function Change() {
 
-        if(index < num2){
+        Animate(oPicUl, {left: -index * that.w1});
+
+        if (index < num2) {
           Animate(oListUl, {left: 0});
-        }else if(index + num2 <= len2){
-          Animate(oListUl, {left: - (index - num2 + 1) * that.w2});
-        }else{
-          Animate(oListUl, {left: - (len2 - num) * that.w2});
+        } else if (index + num2 <= len2) {
+          Animate(oListUl, {left: -(index - num2 + 1) * that.w2});
+        } else {
+          Animate(oListUl, {left: -(len2 - num) * that.w2});
         }
 
         for (var i = 0; i < len2; i++) {
           oListLi[i].className = "";
-          if(i == index){
+          if (i == index) {
             oListLi[i].className = "on";
           }
         }
       }
 
-      oNextTop.onclick = oNext.onclick = function(){
+      oNextTop.onclick = oNext.onclick = function () {
 
-        index ++;
+        index++;
         index = index == len2 ? 0 : index;
         Change();
       }
 
-      oPrev.onmouseover = oNext.onmouseover = oPrevTop.onmouseover = oNextTop.onmouseover = function(){
+      oPrev.onmouseover = oNext.onmouseover = oPrevTop.onmouseover = oNextTop.onmouseover = function () {
         clearInterval(timer);
       }
-      oPrev.onmouseout = oNext.onmouseout = oPrevTop.onmouseout = oNextTop.onmouseout = function(){
-        timer=setInterval(autoPlay,4000);
+      oPrev.onmouseout = oNext.onmouseout = oPrevTop.onmouseout = oNextTop.onmouseout = function () {
+        timer = setInterval(autoPlay, 4000);
       }
 
-      oPrevTop.onclick = oPrev.onclick = function(){
+      oPrevTop.onclick = oPrev.onclick = function () {
 
-        index --;
-        index = index == -1 ? len2 -1 : index;
+        index--;
+        index = index == -1 ? len2 - 1 : index;
         Change();
       }
 
-      var timer=null;
-      timer=setInterval(autoPlay,4000);
-      function autoPlay(){
-        index ++;
+      var timer = null;
+      timer = setInterval(autoPlay, 4000);
+
+      function autoPlay() {
+        index++;
         index = index == len2 ? 0 : index;
         Change();
       }
-
 
 
       // for (var i = 0; i < len2; i++) {
@@ -607,7 +635,7 @@ export default {
       margin: 0 auto;
       display: flex;
 
-      >div {
+      > div {
         position: relative;
 
         .joinzbj {
@@ -853,7 +881,7 @@ export default {
         display: inline-block;
         border-radius: 4px;
 
-        >div {
+        > div {
           position: relative;
           cursor: pointer;
           width: 100%;
@@ -961,7 +989,7 @@ export default {
     position: relative;
     background: #fff;
 
-    >img {
+    > img {
       position: absolute;
       z-index: 10;
       width: 100%;
@@ -978,7 +1006,7 @@ export default {
         text-align: center;
         cursor: pointer;
 
-        >img {
+        > img {
           width: 80px;
           height: 80px;
           margin-bottom: 5px;
@@ -1032,7 +1060,7 @@ export default {
         border-radius: 4px;
         cursor: pointer;
 
-        >div {
+        > div {
           position: relative;
           cursor: pointer;
           width: 100%;
@@ -1148,7 +1176,6 @@ export default {
 }
 
 
-
 .footer-wrapper .inner .guide {
   padding-top: 5px;
 }
@@ -1161,24 +1188,28 @@ export default {
   color: #5b5dae;
   padding-bottom: 25px;
 }
-#prev{
-  background-image: url("../assets/img/downleft.png")  !important;
-  background-repeat:no-repeat !important;
+
+#prev {
+  background-image: url("../assets/img/downleft.png") !important;
+  background-repeat: no-repeat !important;
   background-size: 18px 18px !important;
   background-position: center center;
   border-radius: 2px;
 }
-#prev:hover{
+
+#prev:hover {
   background-color: rgba(0, 0, 0, 0.9) !important;
 }
-#next{
+
+#next {
   background-image: url("../assets/img/downright.png") !important;
-  background-repeat:no-repeat !important;
+  background-repeat: no-repeat !important;
   background-size: 18px 18px !important;
   background-position: center center;
   border-radius: 2px;
 }
-#next:hover{
+
+#next:hover {
   background-color: rgba(0, 0, 0, 0.9) !important;
 }
 </style>

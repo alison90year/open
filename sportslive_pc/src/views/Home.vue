@@ -19,7 +19,7 @@
 
                   <!--                  </div>-->
                   <div class="isjinruzhibojian">
-                    <img  src="../assets/images/jiruzhibojian.png" />
+                    <img src="../assets/images/jiruzhibojian.png"/>
                   </div>
                 </div>
                 <div class="bannertv_box_right">
@@ -2281,48 +2281,48 @@ export default {
     },
     playeres() {
       this.player = "";
-      this.player = new TcPlayer("id_test_video", {
-        m3u8: this.bfUrl, // 原画m3u8 播放URL
-        m3u8_hd: this.bfUrl, // 高清m3u8 播放URL
-        m3u8_sd: this.bfUrl, // 标清m3u8 播放URL
-        flv: this.bfUrl, // 原画flv 播放URL
-        flv_hd: this.bfUrl, // 高清flv 播放URL
-        flv_sd: this.bfUrl, // 标清flv 播放URL
-        mp4: this.bfUrl,
-        mp4_hd: this.bfUrl,
-        mp4_sd: this.bfUrl,
-        rtmp: this.bfUrl,
-        rtmp_hd: this.bfUrl,
-        rtmp_sd: this.bfUrl,
-        width: "1000",
-        height: "556",
-        volume: 0.5, // 设置初始音量
-        live: true, // 设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑
-        autoplay: true, // 是否自动播放
-        coverpic: "", // 预览封面
-        controls: "default", // default 显示默认控件，none 不显示控件，system 移动端显示系统控件
-        flash: "true", // 是否优先使用 flash 播放视频，备注：该选项只对PC平台生效
-        h5_flv: true, // 是否启用 flv.js 的播放 flv
-        x5_player: true, // 是否启用 TBS 的播放 flv
-        // x5_type: "h5", // 通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5
-        // x5_fullscreen: true, // 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式
-        // x5_orientation: 1, // 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏）, 1：（portraint竖屏）, 2：（landscape | portrait跟随手机自动旋转）
-        wording: {
-          1: "主播不在家耶~等会再来吧~",
-          2: "主播不在家耶~等会再来吧~",
-          3: "主播不在家耶~等会再来吧~",
-          4: "主播不在家耶~等会再来吧~",
-          5: "主播不在家耶~等会再来吧~",
-          10: "主播不在家耶~等会再来吧~",
-          11: "主播不在家耶~等会再来吧~",
-          12: "主播不在家耶~等会再来吧~",
-          13: "主播不在家耶~等会再来吧~",
-          1001: "主播不在家耶~等会再来吧~",
-          1002: "主播不在家耶~等会再来吧~",
-          2032: "主播不在家耶~等会再来吧~",
-          2048: "主播不在家耶~等会再来吧~",
-        },
-      });
+      // this.player = new TcPlayer("#id_test_video", {
+      //   m3u8: this.bfUrl, // 原画m3u8 播放URL
+      //   m3u8_hd: this.bfUrl, // 高清m3u8 播放URL
+      //   m3u8_sd: this.bfUrl, // 标清m3u8 播放URL
+      //   flv: this.bfUrl, // 原画flv 播放URL
+      //   flv_hd: this.bfUrl, // 高清flv 播放URL
+      //   flv_sd: this.bfUrl, // 标清flv 播放URL
+      //   mp4: this.bfUrl,
+      //   mp4_hd: this.bfUrl,
+      //   mp4_sd: this.bfUrl,
+      //   rtmp: this.bfUrl,
+      //   rtmp_hd: this.bfUrl,
+      //   rtmp_sd: this.bfUrl,
+      //   width: "1000",
+      //   height: "556",
+      //   volume: 0.5, // 设置初始音量
+      //   live: true, // 设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑
+      //   autoplay: true, // 是否自动播放
+      //   coverpic: "", // 预览封面
+      //   controls: "default", // default 显示默认控件，none 不显示控件，system 移动端显示系统控件
+      //   flash: "true", // 是否优先使用 flash 播放视频，备注：该选项只对PC平台生效
+      //   h5_flv: true, // 是否启用 flv.js 的播放 flv
+      //   x5_player: true, // 是否启用 TBS 的播放 flv
+      //   // x5_type: "h5", // 通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5
+      //   // x5_fullscreen: true, // 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式
+      //   // x5_orientation: 1, // 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏）, 1：（portraint竖屏）, 2：（landscape | portrait跟随手机自动旋转）
+      //   wording: {
+      //     1: "主播不在家耶~等会再来吧~",
+      //     2: "主播不在家耶~等会再来吧~",
+      //     3: "主播不在家耶~等会再来吧~",
+      //     4: "主播不在家耶~等会再来吧~",
+      //     5: "主播不在家耶~等会再来吧~",
+      //     10: "主播不在家耶~等会再来吧~",
+      //     11: "主播不在家耶~等会再来吧~",
+      //     12: "主播不在家耶~等会再来吧~",
+      //     13: "主播不在家耶~等会再来吧~",
+      //     1001: "主播不在家耶~等会再来吧~",
+      //     1002: "主播不在家耶~等会再来吧~",
+      //     2032: "主播不在家耶~等会再来吧~",
+      //     2048: "主播不在家耶~等会再来吧~",
+      //   },
+      // });
     },
     move() {
       this.timer = setInterval(this.starmove, 2500);
@@ -2482,13 +2482,14 @@ export default {
     //正在直播
     async getliveRecommendList() {
       let res = await liveRecommendList();
+      console.log(res.info,'454545')
       this.zhengzaizhibo = res.info;
       this.diyigeshipin = res.info[0].video_url;
       this.diergeshipin = res.info[1].video_url;
-      this.disangeshipin = res.info[2].video_url;
-      this.disigeshipin = res.info[3].video_url;
-      this.diwugeshipin = res.info[4].video_url;
-      this.diliugeshipin = res.info[5].video_url;
+      // this.disangeshipin = res.info[2].video_url;
+      // this.disigeshipin = res.info[3].video_url;
+      // this.diwugeshipin = res.info[4].video_url;
+      // this.diliugeshipin = res.info[5].video_url;
     },
     //赛程
     async getSchedulerecommend() {
@@ -4006,8 +4007,8 @@ qiuduiname {
 }
 
 .table td, .table th {
-  padding: 0rem;
-  border-top: 0px solid #dee2e6;
+  padding: 0;
+  border-top: 0 solid #dee2e6;
 }
 
 .el-tabs--border-card > .el-tabs__content {
