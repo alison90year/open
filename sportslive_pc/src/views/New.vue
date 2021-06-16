@@ -9,7 +9,7 @@
       <div class="article-detail" style="overflow: hidden;"><div class="title" title="{$data.title}">{{news.title}}</div>
         <div class="article-info"><div class="publish-time">发布时间： {{news.addtime}}</div><div class="author"></div><div class="like">
           <img width="20px" src="../assets/resizeApi.png"> <span class="num">{{news.recommended}}</span></div></div>
-        <div v-if="news.thumb.indexOf('http')>-1">
+        <div v-if="news.thumb ? news.thumb.indexOf('http')>-1:false">
           <img width="90%" :src="news.thumb">
         </div>
         <div v-else>

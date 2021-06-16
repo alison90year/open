@@ -45,7 +45,7 @@
               </template>
               <el-menu-item index="1-2" v-for="(item,i) in  seasonlst" v-if="item.area_id==1" :id="item.sid"
                             @click="qiehuan(item.sid)"><img width="30px" height="30px" :src="item.logo">
-                {{item.short_name_zh}}
+                {{ item.short_name_zh }}
               </el-menu-item>
 
             </el-submenu>
@@ -57,7 +57,7 @@
               </template>
               <el-menu-item index="1-2" v-for="(item,i) in  seasonlst" v-if="item.area_id==1" :id="item.sid"
                             @click="qiehuan(item.sid)"><img width="30px" height="30px" :src="item.logo">
-                {{item.short_name_zh}}
+                {{ item.short_name_zh }}
               </el-menu-item>
 
             </el-submenu>
@@ -69,7 +69,7 @@
               </template>
               <el-menu-item index="1-2" v-for="(item,i) in  seasonlst" v-if="item.area_id==2" :id="item.sid"
                             @click="qiehuan(item.sid)"><img width="30px" height="30px" :src="item.logo">
-                {{item.short_name_zh}}
+                {{ item.short_name_zh }}
               </el-menu-item>
 
             </el-submenu>
@@ -81,7 +81,7 @@
               </template>
               <el-menu-item index="1-2" v-for="(item,i) in  seasonlst" v-if="item.area_id==3" :id="item.sid"
                             @click="qiehuan(item.sid)"><img width="30px" height="30px" :src="item.logo">
-                {{item.short_name_zh}}
+                {{ item.short_name_zh }}
               </el-menu-item>
 
             </el-submenu>
@@ -93,7 +93,7 @@
               </template>
               <el-menu-item index="1-2" v-for="(item,i) in  seasonlst" v-if="item.area_id==4" :id="item.sid"
                             @click="qiehuan(item.sid)"><img width="30px" height="30px" :src="item.logo">
-                {{item.short_name_zh}}
+                {{ item.short_name_zh }}
               </el-menu-item>
 
             </el-submenu>
@@ -127,7 +127,7 @@
           </div>
           <!--<iframe  width='100%' height='820' frameborder="0" security="restricted" :src="match"></iframe>-->
           <div style="margin: 50px"><img width="160px" :src="seasondata[0].seasonlogo">
-            <h3>{{seasondata[0].competition}}</h3></div>
+            <h3>{{ seasondata[0].competition }}</h3></div>
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
             <el-tab-pane label="比赛" name="first">
               <table class="table table-bordered">
@@ -140,16 +140,18 @@
                   <th>比赛状态</th>
                 </tr>
                 <tr v-for="item in seasondata">
-                  <td>{{item.match_time | formatDate}}</td>
+                  <td>{{ item.match_time | formatDate }}</td>
                   <td @click="teamdetailer(item.home_team_id)" style="cursor:pointer;color:blue"><img
-                      v-if="item.homelogo !=''" width="25px;" style="margin-right: 10px" :src="item.homelogo">{{item.home}}
+                      v-if="item.homelogo !=''" width="25px;" style="margin-right: 10px"
+                      :src="item.homelogo">{{ item.home }}
                   </td>
                   <!--                                    <td>{{item.data.home_half_vals[0]}} - {{item.away_scores[0]}}</td>-->
                   <td @click="teamdetailer(item.away_team_id)" style="cursor:pointer;color:blue"><img
-                      v-if="item.awaylogo !=''" width="25px;" style="margin-right: 10px" :src="item.awaylogo">{{item.away}}
+                      v-if="item.awaylogo !=''" width="25px;" style="margin-right: 10px"
+                      :src="item.awaylogo">{{ item.away }}
                   </td>
                   <!--                                    <td style="color:gray">{{item.data.home_half_vals[1]}} - {{item.away_scores[1]}}</td>-->
-                  <td>{{item.status_id}}</td>
+                  <td>{{ item.status_id }}</td>
                 </tr>
               </table>
             </el-tab-pane>
@@ -171,20 +173,20 @@
                 </tr>
 
                 <tr v-for="item in scoredata">
-                  <td>{{item.position}}</td>
+                  <td>{{ item.position }}</td>
                   <td @click="teamdetailer(item.team_id)" style="cursor:pointer;color:blue"><img
-                      v-if="item.teamlogo !=''" width="25px" :src="item.teamlogo">{{item.teamname}}
+                      v-if="item.teamlogo !=''" width="25px" :src="item.teamlogo">{{ item.teamname }}
                   </td>
-                  <td>{{item.total}}</td>
-                  <td style="background-color: #F8F8FC;">{{item.won}}</td>
-                  <td style="background-color: #F8F8FC;">{{item.draw}}</td>
-                  <td style="background-color:#F8F8FC;">{{item.loss}}</td>
-                  <td>{{item.goals}}</td>
-                  <td>{{item.goals_against}}</td>
-                  <td>{{item.goal_diff}}</td>
-                  <td>{{item.home_points}}</td>
-                  <td>{{item.away_points}}</td>
-                  <td style="background-color: #F8F8FC;">{{item.points}}</td>
+                  <td>{{ item.total }}</td>
+                  <td style="background-color: #F8F8FC;">{{ item.won }}</td>
+                  <td style="background-color: #F8F8FC;">{{ item.draw }}</td>
+                  <td style="background-color:#F8F8FC;">{{ item.loss }}</td>
+                  <td>{{ item.goals }}</td>
+                  <td>{{ item.goals_against }}</td>
+                  <td>{{ item.goal_diff }}</td>
+                  <td>{{ item.home_points }}</td>
+                  <td>{{ item.away_points }}</td>
+                  <td style="background-color: #F8F8FC;">{{ item.points }}</td>
                 </tr>
               </table>
             </el-tab-pane>
@@ -202,14 +204,14 @@
                 </tr>
 
                 <tr v-for="item in teamdetail">
-                  <td>{{item.shirt_number}}</td>
-                  <td><img width="25px" :src="item.player.logo">{{item.player.name_zh}}</td>
-                  <td style="width: 120px">{{item.player.birthday | formatbirth}}</td>
-                  <td style="background-color: #F8F8FC;">{{item.player.height}}</td>
-                  <td style="background-color: #F8F8FC;">{{item.player.weight}}</td>
-                  <td>{{item.position}}</td>
-                  <td>{{item.player.nationality}}</td>
-                  <td>{{item.player.market_value}}</td>
+                  <td>{{ item.shirt_number }}</td>
+                  <td><img width="25px" :src="item.player.logo">{{ item.player.name_zh }}</td>
+                  <td style="width: 120px">{{ item.player.birthday | formatbirth }}</td>
+                  <td style="background-color: #F8F8FC;">{{ item.player.height }}</td>
+                  <td style="background-color: #F8F8FC;">{{ item.player.weight }}</td>
+                  <td>{{ item.position }}</td>
+                  <td>{{ item.player.nationality }}</td>
+                  <td>{{ item.player.market_value }}</td>
                 </tr>
               </table>
             </el-tab-pane>
@@ -228,9 +230,9 @@
 
     </div>
     <!--<footerbar></footerbar>-->
-    <div class = "load" v-else>
+    <div class="load" v-else>
       <div class="loads">
-        <img src="@/assets/loadinges.gif" />
+        <img src="@/assets/loadinges.gif"/>
         <p style="color: #666666;font-size: 14px;padding-top:5px ">加载中...</p>
       </div>
     </div>
@@ -259,7 +261,7 @@ export default {
       teamdetail: [],
       seasonlst: [],
       moshi: '',
-      is_load:1,
+      is_load: 1,
     };
   },
   filters: {
@@ -296,11 +298,11 @@ export default {
   },
   created() {
     if (this.$route.query.key == 'lst') {
-     this.$nextTick(() => {
-       this.seasonlster()
-       this.seasoner()
-       this.moshi = 'lst'
-     })
+      this.$nextTick(() => {
+        this.seasonlster()
+        this.seasoner()
+        this.moshi = 'lst'
+      })
     } else {
       this.moshi = ''
       this.seasoner()
@@ -313,14 +315,14 @@ export default {
   },
 
   methods: {
-    handleClick(){
+    handleClick() {
       console.log('handleClick')
     },
     async seasonlster() {
       let res = await seasonlst();
       this.seasonlst = res;
       this.is_load = 0
-      if( document.getElementById("homer") && document.getElementById("changhezi")){
+      if (document.getElementById("homer") && document.getElementById("changhezi")) {
         document.getElementById("homer").offsetHeight = document.getElementById("changhezi").offsetHeight + 100;
         this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
       }
@@ -336,10 +338,10 @@ export default {
         let res = await seasonscore(data);
         this.scoredata = res;
       }
-      setTimeout(function () {
+      if (document.getElementById("homer").offsetHeight && document.getElementById("changhezi")) {
+        this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
         document.getElementById("homer").offsetHeight = document.getElementById("changhezi").offsetHeight + 30;
-      }, 800);
-      this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
+      }
     },
     async lqseasoner() {
       //console.log(566222)
@@ -349,10 +351,10 @@ export default {
       let res = await lqseasondata(data);
       this.seasondata = res;
       // console.log(res)
-      setTimeout(function () {
+      if (document.getElementById("homer") && document.getElementById("changhezi")) {
         document.getElementById("homer").offsetHeight = document.getElementById("changhezi").offsetHeight + 30;
-      }, 800);
-      this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
+        this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
+      }
     },
     async seasoner() {
       //console.log(566222)
@@ -370,7 +372,7 @@ export default {
       setTimeout(function () {
 
       }, 900);
-      if(document.getElementById("homer") &&  document.getElementById("changhezi")){
+      if (document.getElementById("homer") && document.getElementById("changhezi")) {
         document.getElementById("homer").offsetHeight = document.getElementById("changhezi").offsetHeight + 30;
         this.$refs.neikuangg.offsetHeight = this.$refs.homerr.offsetHeight - 50;
       }
@@ -388,9 +390,9 @@ export default {
         this.teamdetail = res
       }
       this.activeName = 'three'
-      setTimeout(function () {
+      if (document.getElementById("homer") && document.getElementById("changhezi")) {
         document.getElementById("homer").offsetHeight = document.getElementById("changhezi").offsetHeight + 30;
-      }, 1100);
+      }
     },
 
     qiehuan(ming) {
@@ -439,6 +441,7 @@ export default {
       }
 
     }
+
     .selected_event {
       width: 500px;
 
@@ -466,7 +469,8 @@ export default {
     height: 800px
     overflow-y: auto;
 
-    position:relative
+    position: relative
+
     .event_list {
       width: 500px;
       clear: both;
@@ -1014,8 +1018,8 @@ export default {
 
   }
 
-  .box-card{
-    #changhezi{
+  .box-card {
+    #changhezi {
       .el-tabs__item {
         width: 84px;
         height: 32px;
@@ -1028,28 +1032,34 @@ export default {
         color: #555555;
         text-align: center;
       }
-      .el-tabs__item:hover{
+
+      .el-tabs__item:hover {
         background: linear-gradient(180deg, rgba(87, 238, 255, 1) 0%, rgba(129, 211, 248, 1) 49%, rgba(37, 149, 230, 1) 94%);
         color: #fff;
       }
-      .el-tabs__item:nth-child(2){
+
+      .el-tabs__item:nth-child(2) {
         margin-left: 30px;
       }
 
-      .el-tabs__nav{
+      .el-tabs__nav {
         border: 0;
       }
-      .el-tabs--card>.el-tabs__header{
+
+      .el-tabs--card > .el-tabs__header {
         border-bottom: 0;
       }
-      .el-tabs__item.is-active{
+
+      .el-tabs__item.is-active {
         background: linear-gradient(180deg, rgba(87, 238, 255, 1) 0%, rgba(129, 211, 248, 1) 49%, rgba(37, 149, 230, 1) 94%);
         color: #fff;
       }
     }
-    .listbottom{
+
+    .listbottom {
       overflow: hidden;
-      .bottomtitle{
+
+      .bottomtitle {
         font-family: 'Arial Narrow Bold', 'Arial Narrow', 'Arial', sans-serif;
         font-weight: 700;
         font-style: normal;
@@ -1061,7 +1071,8 @@ export default {
         text-align: center;
         line-height: 33px;
       }
-      .bottombox{
+
+      .bottombox {
         width: 502px;
         height: 196px;
         background: inherit;
@@ -1074,28 +1085,33 @@ export default {
   }
 
 }
-.is-active{
+
+.is-active {
   color: #007aff;
 }
-.loads{
+
+.loads {
   width: 100px;
   height: 100px;
-  background:#f0f1f4;
+  background: #f0f1f4;
   box-shadow: 0 0 10px #cecece;
   margin: auto;
   padding: 12px;
   border-radius: 5px;
-  color:#666;
+  color: #666;
 }
-.load{
+
+.load {
   height: 500px;
   text-align: center;
   margin-top: 200px;
-  img{
-    width:55px;
+
+  img {
+    width: 55px;
   }
 }
-.matchwrappercomp .box-card #changhezi .el-tabs__item:hover,.matchwrappercomp .box-card #changhezi .el-tabs__item.is-active{
-      background #dbb16f !important
-    }
+
+.matchwrappercomp .box-card #changhezi .el-tabs__item:hover, .matchwrappercomp .box-card #changhezi .el-tabs__item.is-active {
+  background #dbb16f !important
+}
 </style>

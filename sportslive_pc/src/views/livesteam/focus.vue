@@ -36,7 +36,7 @@ export default {
     };
   },
   mounted() {
-    this.user = JSON.parse(window.localStorage.getItem("user"));
+    this.user = window.localStorage.getItem("user") ? JSON.parse(window.localStorage.getItem("user")):'';
     this.token = window.localStorage.token;
     this.getuserFollowAnchor();
   },

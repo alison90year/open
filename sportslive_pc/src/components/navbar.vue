@@ -2,8 +2,6 @@
   <div
       id="nav"
       style="height: 60px"
-      :style="
-    "
   >
     <div
         class="navinner"

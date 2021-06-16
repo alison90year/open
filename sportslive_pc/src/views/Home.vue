@@ -2367,6 +2367,7 @@ export default {
         this.$refs.ssbnba.className = "competition";
       }
     },
+    newwindowses(){},
     sheshouqh(lei) {
       if (lei == 2) {
         this.$refs.ssbaa.className = "option";

@@ -242,26 +242,27 @@ export default {
       };
       AppointmentList(params).then((res) => {
         this.datalist = [];
-        console.log(res,'4444');
-        res.info.map((item) => {
-          console.log(item, "-----------------");
-          // var date = new Date(item.addtime * 1000); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
-          // var Y = date.getFullYear() + "年";
-          // var M =
-          //   (date.getMonth() + 1 < 10
-          //     ? "0" + (date.getMonth() + 1)
-          //     : date.getMonth() + 1) + "月";
-          // var D = date.getDate() + "日";
-          // var h = date.getHours() + ":";
-          // var m = date.getMinutes() + ":";
-          // var s = date.getSeconds();
-          item.addtime = this.timestampToTime(item.addtime).slice(5, 10);
-          item.game_details.competition_time = this.timestampToTime(
-              item.game_details.competition_time
-          ).slice(11);
+        if(res.length){
+          res.info.map((item) => {
+            console.log(item, "-----------------");
+            // var date = new Date(item.addtime * 1000); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+            // var Y = date.getFullYear() + "年";
+            // var M =
+            //   (date.getMonth() + 1 < 10
+            //     ? "0" + (date.getMonth() + 1)
+            //     : date.getMonth() + 1) + "月";
+            // var D = date.getDate() + "日";
+            // var h = date.getHours() + ":";
+            // var m = date.getMinutes() + ":";
+            // var s = date.getSeconds();
+            item.addtime = this.timestampToTime(item.addtime).slice(5, 10);
+            item.game_details.competition_time = this.timestampToTime(
+                item.game_details.competition_time
+            ).slice(11);
 
-          this.datalist.push(item);
-        });
+            this.datalist.push(item);
+          });
+        }
       });
     },
     timestampToTime(timestamp) {
