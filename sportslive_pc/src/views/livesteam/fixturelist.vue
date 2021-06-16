@@ -485,11 +485,10 @@ export default {
       this.match = this.football[index].game;
     },
     searchCompetitionData(val) {
-      console.log(val);
-      $(".time-week-item")
-        .addClass("activecolor")
-        .sibling()
-        .removeClass("activecolor");
+      // $(".time-week-item")
+      //   .addClass("activecolor")
+      //   .sibling()
+      //   .removeClass("activecolor");
       var year = "";
       if (val !== undefined) {
         this.date = val.date;
