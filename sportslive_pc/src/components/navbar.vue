@@ -1,30 +1,29 @@
 <template>
   <div
-    id="nav"
-    style="height: 60px"
-    :style="
-
+      id="nav"
+      style="height: 60px"
+      :style="
     "
   >
     <div
-      class="navinner"
-    
+        class="navinner"
+
     >
       <div style="display: flex; position: relative" @mouseleave="cutscore()">
         <img src="../assets/img/loongtvlogo.png" alt class="logo" />
         <ul class="header-menu">
           <li
-            :id="'nav' + i"
-            v-for="(item, i) in navList"
-            :key="i"
-           
+              :id="'nav' + i"
+              v-for="(item, i) in navList"
+              :key="i"
+
           >
             <span @click="tabFn(item.name, i)">
               {{ item.name }}
               <img
-                style="position: absolute; top: -5px"
-                v-if="item.name === '直播间'"
-                src="../assets/img/hot.gif"
+                  style="position: absolute; top: -5px"
+                  v-if="item.name === '直播间'"
+                  src="../assets/img/hot.gif"
               />
             </span>
 
@@ -32,16 +31,16 @@
             <div class="download-submenu" v-show="showsubmenu">
               <div class="download-submenu-box" style="height: 230px">
                 <img
-                  src="../assets/img/appdown.png"
-                  width="190px"
-                  style="float: left"
+                    src="../assets/img/appdown.png"
+                    width="190px"
+                    style="float: left"
                 />
                 <div style="float: left; margin-left: 15px">
                   <p style="font-size: 16px; font-weight: 600">一度APP</p>
                   <br />
                   <img
-                    src="@/assets/xiazaima.jpg"
-                    style="border: solid 1px #cccccc; width: 135px"
+                      src="@/assets/xiazaima.jpg"
+                      style="border: solid 1px #cccccc; width: 135px"
                   />
 
                   <p>扫码安装APP</p>
@@ -51,16 +50,16 @@
             <div class="team_class" v-show="score" @mouseleave="cutscore()">
               <div class="score">
                 <span
-                  @mouseover="changexxk(1)"
-                  :class="[whichball == 1 ? 'footorbas' : 'basorfoot']"
-                  @click="tabFn('足球比分', '')"
-                  >足球</span
+                    @mouseover="changexxk(1)"
+                    :class="[whichball == 1 ? 'footorbas' : 'basorfoot']"
+                    @click="tabFn('足球比分', '')"
+                >足球</span
                 >
                 <span
-                  @mouseover="changexxk(2)"
-                  :class="[whichball == 2 ? 'footorbas' : 'basorfoot']"
-                  @click="tabFn('篮球比分', '')"
-                  >篮球</span
+                    @mouseover="changexxk(2)"
+                    :class="[whichball == 2 ? 'footorbas' : 'basorfoot']"
+                    @click="tabFn('篮球比分', '')"
+                >篮球</span
                 >
               </div>
             </div>
@@ -74,7 +73,7 @@
       <div class="header-right" v-if="isLogin">
         <el-popover width="400" trigger="hover">
           <div
-            style="
+              style="
               border-bottom: solid 1px #ebebeb;
               margin: auto;
               position: relative;
@@ -82,35 +81,35 @@
             "
           >
             <div
-              style="text-align: center"
-              @click="$router.push({ name: 'mine' })"
+                style="text-align: center"
+                @click="$router.push({ name: 'mine' })"
             >
               <el-avatar
-                size="large"
-                :src="info.avatar"
-                style="width: 100px; height: 100px"
+                  size="large"
+                  :src="info.avatar"
+                  style="width: 100px; height: 100px"
               ></el-avatar>
               <p style="font-size: 20px; letter-spacing: 1px">
                 <span>{{ info.nick_name }}</span>
               </p>
               <div
-                style="width: 70%; position: absolute; left: 55px; top: 153px"
+                  style="width: 70%; position: absolute; left: 55px; top: 153px"
               >
                 <el-progress
-                  :text-inside="true"
-                  color="rgb(238, 205, 168)"
-                  style="
+                    :text-inside="true"
+                    color="rgb(238, 205, 168)"
+                    style="
                   height: 12px;
-                   
+
                   "
-                  :stroke-width="15"
-                  :percentage="50"
+                    :stroke-width="15"
+                    :percentage="50"
                 ></el-progress>
               </div>
             </div>
 
             <div
-              style="
+                style="
                 font-size: 16px;
                 color: #5a629e;
                 font-weight: normal;
@@ -125,21 +124,21 @@
                 <div style="float: left; margin-right: 30px">
                   <span>我的钱包</span>
                   <img
-                    src="../assets/images/longzuan.png"
-                    style="
+                      src="../assets/images/longzuan.png"
+                      style="
                       position: relative;
                       top: 5px;
                       margin-right: 10px;
                       margin-left: 5px;
                     "
                   />
-                  
+
                   <span>龙钻:{{ info.coin }}</span>
                 </div>
-                
+
               </div>
               <div
-                style="
+                  style="
                   width: 54px;
                   height: 20px;
                   opacity: 1;
@@ -151,47 +150,47 @@
                   color: #fff;
                   cursor: pointer;
                 "
-                class="chongzhibtn"
+                  class="chongzhibtn"
               >
                 <span style="color: #fff" @click="goRecharge">充值</span>
               </div>
             </div>
             <el-button
-              size="mini"
-              @click="tuichudl"
-              style="
+                size="mini"
+                @click="tuichudl"
+                style="
                 position: absolute;
                 top: 0px;
                 right: 5px;
                 border: 1px solid rgba(118, 128, 156, 0.5);
                 color: #76809c;
               "
-              >退出登录</el-button
+            >退出登录</el-button
             >
           </div>
           <el-row class="grzxlist">
             <el-col :span="6">
               <img
-                src="../assets/images/gerenzhongxin.png"
-                alt
-                @click="Submit(1)"
+                  src="../assets/images/gerenzhongxin.png"
+                  alt
+                  @click="Submit(1)"
               />
               <p @click="Submit(1)">个人中心</p>
             </el-col>
             <el-col :span="6">
               <img
-                src="../assets/images/wodeguanzhu.png"
-                alt
-                @click="Submit(2)"
+                  src="../assets/images/wodeguanzhu.png"
+                  alt
+                  @click="Submit(2)"
               />
               <p @click="Submit(2)">我的关注</p>
             </el-col>
 
             <el-col :span="6">
               <img
-                src="../assets/images/wodexiaoxi.png"
-                alt
-                @click="Submit(3)"
+                  src="../assets/images/wodexiaoxi.png"
+                  alt
+                  @click="Submit(3)"
               />
               <p @click="Submit(3)">我的消息</p>
             </el-col>
@@ -213,20 +212,20 @@
       </div>
       <div class="header-right" v-else>
         <div
-          :class="[regiorlog2 == 2 ? 'regisbtnsan' : 'regisbtner']"
-          @mouseover="changelogbtn(1)"
-          @mouseleave="changelogbtn(2)"
-          @click="denglu"
-          style="font-size: 14px; font-weight: 800"
+            :class="[regiorlog2 == 2 ? 'regisbtnsan' : 'regisbtner']"
+            @mouseover="changelogbtn(1)"
+            @mouseleave="changelogbtn(2)"
+            @click="denglu"
+            style="font-size: 14px; font-weight: 800"
         >
           登录
         </div>
         <div
-          :class="[regiorlog == 2 ? 'regisbtner' : 'regisbtn']"
-          @click="zhuce"
-          @mouseover="changeregbtn(1)"
-          @mouseleave="changeregbtn(2)"
-          style="margin-left: 15px; font-size: 14px; font-weight: 800"
+            :class="[regiorlog == 2 ? 'regisbtner' : 'regisbtn']"
+            @click="zhuce"
+            @mouseover="changeregbtn(1)"
+            @mouseleave="changeregbtn(2)"
+            style="margin-left: 15px; font-size: 14px; font-weight: 800"
         >
           注册
         </div>
@@ -258,73 +257,73 @@
     <!--        </el-backtop>-->
 
     <el-dialog
-      title="反馈"
-      :visible.sync="dialogVisible"
-      width="40%"
-      :append-to-body="true"
+        title="反馈"
+        :visible.sync="dialogVisible"
+        width="40%"
+        :append-to-body="true"
     >
       <span>问题类型：</span><br /><br />
       <el-button
-        type="danger"
-        style="margin-bottom: 20px"
-        size="small"
-        @click="changefklx('其他')"
-        >其他</el-button
+          type="danger"
+          style="margin-bottom: 20px"
+          size="small"
+          @click="changefklx('其他')"
+      >其他</el-button
       ><el-button
         type="danger"
         style="margin-bottom: 20px"
         size="small"
         plain
         @click="changefklx('卡顿')"
-        >卡顿</el-button
+    >卡顿</el-button
+    >
+      <el-button
+          type="danger"
+          style="margin-bottom: 20px"
+          size="small"
+          plain
+          @click="changefklx('页面错位')"
+      >页面错位</el-button
       >
       <el-button
-        type="danger"
-        style="margin-bottom: 20px"
-        size="small"
-        plain
-        @click="changefklx('页面错位')"
-        >页面错位</el-button
-      >
-      <el-button
-        type="danger"
-        style="margin-bottom: 20px"
-        size="small"
-        plain
-        @click="changefklx('死机')"
-        >死机</el-button
+          type="danger"
+          style="margin-bottom: 20px"
+          size="small"
+          plain
+          @click="changefklx('死机')"
+      >死机</el-button
       ><el-button
         type="danger"
         style="margin-bottom: 20px"
         size="small"
         plain
         @click="changefklx('页面优化')"
-        >页面优化</el-button
-      >
+    >页面优化</el-button
+    >
       <el-button
-        type="danger"
-        style="margin-bottom: 20px"
-        size="small"
-        plain
-        @click="changefklx('闪退')"
-        >闪退</el-button
+          type="danger"
+          style="margin-bottom: 20px"
+          size="small"
+          plain
+          @click="changefklx('闪退')"
+      >闪退</el-button
       ><el-button type="danger" size="small" plain @click="changefklx('app')"
-        >app</el-button
-      ><br /><br /><br />
+    >app</el-button
+    ><br /><br /><br />
       <span>问题详情：</span><br /><br />
       <el-input
-        type="textarea"
-        placeholder="我有话要说..."
-        v-model="fankuineir"
+          type="textarea"
+          placeholder="我有话要说..."
+          v-model="fankuineir"
       ></el-input
       ><br />
       <img width="150px" src="" ref="tuzhanwei" /><el-upload
         action="https://api.daoyunxiang.com/appapi/?service=New.uploadimg"
         list-type="picture-card"
         auto-upload
-      >
-        <i class="el-icon-plus"></i>
-      </el-upload>
+    >
+      <i class="el-icon-plus"></i>
+    </el-upload>
 
       <br /><br /><br />
       <span>联系方式(选填，方便我们与您联系)：</span><br /><br />
@@ -335,8 +334,8 @@
       </span>
     </el-dialog>
     <div
-      id="asker"
-      style="
+        id="asker"
+        style="
         position: fixed;
         right: 15px;
         top: 360px;
@@ -347,7 +346,7 @@
       <el-tooltip class="item" effect="light" placement="left">
         <router-link :to="{ name: 'about-Anchor' }">
           <span class="footerhover" style="color: #8d93a1; font-size: 12px"
-            >龙牙直播规范</span
+          >龙牙直播规范</span
           > </router-link
         ><br />
         <div slot="content" style="color: #dbb16f">问题反馈</div>
@@ -361,12 +360,12 @@
           <img width="60px" src="../assets/images/longya.png" /><br />龙牙直播
         </div>
         <a
-          style="width: 100%; height: 56px; display: inline-block"
-          href="https://app.longya.tv/"
-          target="_blank"
+            style="width: 100%; height: 56px; display: inline-block"
+            href="https://app.longya.tv/"
+            target="_blank"
         >
           <i class="xiazaiapp" style="border-radius: 50%"></i
-        ></a>
+          ></a>
       </el-tooltip>
       <br />
       <br />
@@ -385,20 +384,20 @@
         </div>
         <!--                <img @click="dialogVisible = true"  src="../assets/img/customer.png">-->
         <a
-          href="https://kf.longya.tv/"
-          target="_blank"
-          style="width: 100%; height: 56px; display: inline-block"
-          ><i class="kefuhover"></i
+            href="https://kf.longya.tv/"
+            target="_blank"
+            style="width: 100%; height: 56px; display: inline-block"
+        ><i class="kefuhover"></i
         ></a>
       </el-tooltip>
       <br />
       <br />
       <el-backtop style="right: 17px; top: 676px; width: 56px">
         <i
-          class="gototop"
-          @mouseover="changeimgz(1)"
-          @mouseleave="changeimgz(2)"
-          style="border-radius: 50%"
+            class="gototop"
+            @mouseover="changeimgz(1)"
+            @mouseleave="changeimgz(2)"
+            style="border-radius: 50%"
         ></i>
       </el-backtop>
     </div>
@@ -423,18 +422,18 @@ export default {
         return false;
       },
     },
-    isLogin: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
+    // isLogin: {
+    //   type: Boolean,
+    //   default() {
+    //     return false;
+    //   },
+    // },
   },
   watch: {
-    isLogin(newVal) {
-      this.init();
-      // console.log(1111)
-    },
+    // isLogin(newVal) {
+    //   this.init();
+    //   // console.log(1111)
+    // },
   },
   data() {
     return {
@@ -456,6 +455,7 @@ export default {
       fankuineir: "",
       fktype: "其他",
       fkimg: "",
+      isLogin:false,
       telphone: "",
       regiorlog: 1,
       whichball: 0,
@@ -477,16 +477,14 @@ export default {
       $(".navinner").removeClass("navbox");
       $("#nav").removeClass("navbox22");
     }
-
+    // this.isLogin = window.localStorage.getItem('user')
     let active = location.hash;
-
     this.navList.forEach((item, index) => {
       if (item.url == active) {
         this.navList[index].active = true;
       } else {
         this.navList[index].active = false;
       }
-
       if (active == "#/Football" || active == "#/Basketball") {
         this.navList[2].active = true;
       }
@@ -575,27 +573,24 @@ export default {
         console.log(user);
       }
       // console.log(window.localStorage.getItem("isLogin"))
-      // if (
-      //   window.localStorage.getItem("isLogin") == null &&
-      //   window.localStorage.getItem("isLogin") == true
-      // ) {
-      //   this.isLogin = true;
-      // } else {
-      //   this.isLogin = window.localStorage.getItem("isLogin");
-      // }
-
+      if (
+          window.localStorage.getItem("isLogin") == null &&
+          window.localStorage.getItem("isLogin") == true
+      ) {
+        this.isLogin = true;
+      } else {
+        this.isLogin = window.localStorage.getItem("isLogin");
+      }
       // console.log(this.isLogin)
     },
-
     cutscore() {
       this.score = false;
     },
-
     tabFn(name, i) {
       $("#nav" + i)
-        .addClass("navclass")
-        .siblings()
-        .removeClass("navclass");
+          .addClass("navclass")
+          .siblings()
+          .removeClass("navclass");
       switch (name) {
         case "首页":
           this.$router.push("/");
@@ -655,7 +650,6 @@ export default {
           item.active = false;
         }
       });
-
       if (name == "足球比分" || name == "篮球比分") {
         this.navList.forEach((item, index) => {
           if (index == 2) {
@@ -665,10 +659,8 @@ export default {
           }
         });
       }
-
       this.score = false;
     },
-
     backHome() {
       this.navList = [
         { name: "首页", active: true },
@@ -677,11 +669,9 @@ export default {
       ];
       this.$router.push("/");
     },
-
     denglu() {
       this.$emit("denglu");
     },
-
     zhuce() {
       this.$emit("zhuce");
     },
@@ -721,18 +711,17 @@ export default {
         this.$router.push({ name: "mine" });
       }
     },
-
     tuichudl() {
       this.$confirm("确认退出?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
       })
-        .then(() => {
-          window.localStorage.removeItem("token");
-          window.localStorage.removeItem("user");
-          this.$emit("tcdl");
-        })
-        .catch(() => {});
+          .then(() => {
+            window.localStorage.removeItem("token");
+            window.localStorage.removeItem("user");
+            this.$emit("tcdl");
+          })
+          .catch(() => {});
     },
     changeimgz(type) {
       if (type == 1) {
@@ -751,10 +740,10 @@ export default {
     changeimgx(type) {
       if (type == 1) {
         this.$refs.kefuonline.src =
-          "https://soket.daoyunxiang.com/customer2.png";
+            "https://soket.daoyunxiang.com/customer2.png";
       } else {
         this.$refs.kefuonline.src =
-          "https://soket.daoyunxiang.com/customer.png";
+            "https://soket.daoyunxiang.com/customer.png";
       }
     },
   },
@@ -764,24 +753,19 @@ export default {
 <style lang="stylus">
 .grzxlist {
   padding: 20px 0;
-
   .el-col {
     text-align: center;
     cursor: pointer;
   }
-
   img {
     width: 32px;
   }
-
   p {
     font-size: 12px;
   }
 }
-
 #nav.active {
   background: #fff;
-
   .navinner {
     .header-menu {
       li {
@@ -790,7 +774,6 @@ export default {
     }
   }
 }
-
 .regisbtn {
   color: #DBB16F;
   border: 1px solid #DBB16F;
@@ -799,7 +782,6 @@ export default {
   padding: 6px 24px;
   border-radius: 4px;
 }
-
 .regisbtner {
   color: white;
   border: 1px solid #DBB16F;
@@ -810,7 +792,6 @@ export default {
   background: linear-gradient(90deg, #ECCBAB 0%, #DBB16F 100%);
   color: #FFFFFF;
 }
-
 .regisbtnsan {
   color: white;
   border: 1px solid #DBB16F;
@@ -821,7 +802,6 @@ export default {
   background: linear-gradient(90deg, #ECCBAB 0%, #DBB16F 100%);
   color: #FFFFFF;
 }
-
 .footorbas {
   font-size: 16px;
   background: linear-gradient(180deg, rgba(252, 253, 255, 1) 0%, rgba(221, 230, 249, 1) 55%, rgba(254, 254, 255, 1) 100%);
@@ -835,14 +815,13 @@ export default {
   box-shadow: 3px 5px 6px 1px #dcdfe7;
   border-radius: 51px;
 }
-
 .basorfoot {
   font-size: 16px;
   background: linear-gradient(
-    180deg,
-    rgba(88, 234, 255, 1) 0%,
-    rgba(87, 184, 250, 1) 55%,
-    rgba(43, 153, 233, 1) 100%
+      180deg,
+      rgba(88, 234, 255, 1) 0%,
+      rgba(87, 184, 250, 1) 55%,
+      rgba(43, 153, 233, 1) 100%
   );
   display: block;
   color: #FFFFFF;
@@ -854,7 +833,6 @@ export default {
   box-shadow: 3px 5px 6px 1px #dcdfe7;
   border-radius: 51px;
 }
-
 #nav {
   width: 100%;
   background: #fff;
@@ -864,7 +842,6 @@ export default {
   left: 0;
   width: 100%;
   z-index: 2000;
-
   .navinner {
     width: 1200px;
     height: 60px;
@@ -874,19 +851,16 @@ export default {
     justify-content: space-between;
     align-items: center;
     font-size: 18px;
-
     .logo {
       height: 46px;
       width: 120px;
       margin-right: 58px;
       cursor: pointer;
     }
-
     .header-menu {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       li {
         padding: 3px 10px;
         line-height: 26px;
@@ -896,179 +870,160 @@ export default {
         cursor: pointer;
         color: #0c0c0c;
       }
-
       li.active {
         color: #fff ;
         background: linear-gradient(
-          178.800263761879deg,
-          rgba(252, 205, 156, 1) 2%,
-          rgba(205, 151, 85, 1) 98%
+            178.800263761879deg,
+            rgba(252, 205, 156, 1) 2%,
+            rgba(205, 151, 85, 1) 98%
         );
         border-radius: 4px;
       }
-
       li.navclass {
         color: #fff;
         background: linear-gradient(
-          178.800263761879deg,
-          rgba(252, 205, 156, 1) 2%,
-          rgba(205, 151, 85, 1) 98%
+            178.800263761879deg,
+            rgba(252, 205, 156, 1) 2%,
+            rgba(205, 151, 85, 1) 98%
         );
         border-radius: 4px;
       }
-
       li:nth-child(1):hover, li:nth-child(2):hover, li:nth-child(3):hover, li:nth-child(4):hover, li:nth-child(5):hover, li:nth-child(6):hover, li:nth-child(7):hover {
-        color: #fff;
-        background: linear-gradient(
-          178.800263761879deg,
-          rgba(252, 205, 156, 1) 2%,
-          rgba(205, 151, 85, 1) 98%
-        );
-        border-radius: 4px;
-      }
-    }
-
-    .team_class {
-      width: 250px;
-      border-radius: 4px;
-      color: #777;
-      cursor: default;
-      z-index: 100;
-      text-align: center;
-      position: absolute;
-      left: 179px;
-      top: 45px;
-      line-height: 100%;
-      padding-top: 10px;
-    }
-
-    .score {
-      background: #fff;
-      border-radius: 8px;
-      border: 1px solid #F2F2F2;
-      height: 60px;
-      width: 250px;
-    }
-
-    .score span {
-      font-size: 16px;
-      background: linear-gradient(
-        180deg,
-        rgba(252, 253, 255, 1) 0%,
-        rgba(221, 230, 249, 1) 55%,
-        rgba(254, 254, 255, 1) 100%
-      );
-      display: block;
-      color: #5A629E;
-      float: left;
-      padding: 5px 10px 5px 10px;
-      margin: 16px 10px 10px 22px;
-      cursor: pointer;
-      letter-spacing: 1px;
-      box-shadow: 4px 5px 5px #F2F2F2;
-      border-radius: 51px;
-    }
-
-    .score span:hover {
-      background: linear-gradient(
-        178.800263761879deg,
-        rgba(252, 205, 156, 1) 2%,
-        rgba(205, 151, 85, 1) 98%
-      );
-      color: #FFFFFF;
-    }
-
-    .score:before {
-      display: block;
-      position: absolute;
-      height: 0;
-      width: 0;
-      margin: 0;
-      padding: 0;
-      content: '';
-      border: 8px solid transparent;
-      border-bottom-color: #fff;
-      top: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .score p:nth-child(3) {
-      margin-top: 6px;
-    }
-
-    .download-submenu {
-      width: 390px;
-      border-radius: 4px;
-      color: #777;
-      cursor: default;
-      z-index: 100;
-      text-align: center;
-      position: absolute;
-      left: 530px;
-      top: 45px;
-      line-height: 100%;
-      padding-top: 10px;
-    }
-
-    .download-submenu-box {
-      padding: 20px;
-      font-size: 12px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    .download-submenu-box img {
-      margin-bottom: 4px;
-    }
-
-    .download-submenu-box p {
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 100%;
-    }
-
-    .download-submenu-box:before {
-      display: block;
-      position: absolute;
-      height: 0;
-      width: 0;
-      margin: 0;
-      padding: 0;
-      content: '';
-      border: 8px solid transparent;
-      border-bottom-color: #fff;
-      top: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .download-submenu-box p:nth-child(3) {
-      margin-top: 6px;
-    }
-
-    .header-right {
-      color: #89D3FD;
-
-      span {
-        margin: 0 10px;
-        cursor: pointer;
-      }
-
-      .chongzhibtn {
-        width: 68px;
-        height: 27px;
-        background: -webkit-linear-gradient(271.510649665691deg, rgba(252, 216, 179, 1) 3%, rgba(185, 153, 119, 1) 97%);
-        background: -moz-linear-gradient(178.489350334309deg, rgba(252, 216, 179, 1) 3%, rgba(185, 153, 119, 1) 97%);
-        background: linear-gradient(178.489350334309deg, rgba(252, 216, 179, 1) 3%, rgba(185, 153, 119, 1) 97%);
-        border: none;
-        border-radius: 5px;
-      }
-    }
+                                              color: #fff;
+                                              background: linear-gradient(
+                                                  178.800263761879deg,
+                                                  rgba(252, 205, 156, 1) 2%,
+                                                  rgba(205, 151, 85, 1) 98%
+                                              );
+                                              border-radius: 4px;
+                                            }
+}
+.team_class {
+  width: 250px;
+  border-radius: 4px;
+  color: #777;
+  cursor: default;
+  z-index: 100;
+  text-align: center;
+  position: absolute;
+  left: 179px;
+  top: 45px;
+  line-height: 100%;
+  padding-top: 10px;
+}
+.score {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #F2F2F2;
+  height: 60px;
+  width: 250px;
+}
+.score span {
+  font-size: 16px;
+  background: linear-gradient(
+      180deg,
+      rgba(252, 253, 255, 1) 0%,
+      rgba(221, 230, 249, 1) 55%,
+      rgba(254, 254, 255, 1) 100%
+  );
+  display: block;
+  color: #5A629E;
+  float: left;
+  padding: 5px 10px 5px 10px;
+  margin: 16px 10px 10px 22px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 4px 5px 5px #F2F2F2;
+  border-radius: 51px;
+}
+.score span:hover {
+  background: linear-gradient(
+      178.800263761879deg,
+      rgba(252, 205, 156, 1) 2%,
+      rgba(205, 151, 85, 1) 98%
+  );
+  color: #FFFFFF;
+}
+.score:before {
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  content: '';
+  border: 8px solid transparent;
+  border-bottom-color: #fff;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.score p:nth-child(3) {
+  margin-top: 6px;
+}
+.download-submenu {
+  width: 390px;
+  border-radius: 4px;
+  color: #777;
+  cursor: default;
+  z-index: 100;
+  text-align: center;
+  position: absolute;
+  left: 530px;
+  top: 45px;
+  line-height: 100%;
+  padding-top: 10px;
+}
+.download-submenu-box {
+  padding: 20px;
+  font-size: 12px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+}
+.download-submenu-box img {
+  margin-bottom: 4px;
+}
+.download-submenu-box p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 100%;
+}
+.download-submenu-box:before {
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  content: '';
+  border: 8px solid transparent;
+  border-bottom-color: #fff;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.download-submenu-box p:nth-child(3) {
+  margin-top: 6px;
+}
+.header-right {
+  color: #89D3FD;
+  span {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .chongzhibtn {
+    width: 68px;
+    height: 27px;
+    background: -webkit-linear-gradient(271.510649665691deg, rgba(252, 216, 179, 1) 3%, rgba(185, 153, 119, 1) 97%);
+    background: -moz-linear-gradient(178.489350334309deg, rgba(252, 216, 179, 1) 3%, rgba(185, 153, 119, 1) 97%);
+    background: linear-gradient(178.489350334309deg, rgba(252, 216, 179, 1) 3%, rgba(185, 153, 119, 1) 97%);
+    border: none;
+    border-radius: 5px;
   }
 }
-
+}
+}
 // .navbox2:hover{
 // box-shadow: 0 2px 8px 0 rgb(0 0 0 / 20%) !important;
 // background-color: rgba(255, 255, 255, 0.08) !important;
@@ -1077,7 +1032,6 @@ export default {
   box-shadow: 0 2px 8px 0 rgb(0 0 0 / 20%) !important;
   background-color: rgba(255, 255, 255, 0.08) !important;
 }
-
 .recordque {
   display: inline-block;
   width: 56px;
@@ -1086,12 +1040,10 @@ export default {
   background: url('../assets/images/wenti.png');
   background-size: 100% 100%;
 }
-
 .recordque:hover {
   background: url('../assets/images/wentihover.png');
   background-size: 100% 100%;
 }
-
 .xiazaiapp {
   display: inline-block;
   width: 56px;
@@ -1099,12 +1051,10 @@ export default {
   background: url('../assets/images/xiazai.png');
   background-size: 100% 100%;
 }
-
 .xiazaiapp:hover {
   background: url('../assets/images/xiazaihover.png');
   background-size: 100% 100%;
 }
-
 .gototop {
   display: inline-block;
   width: 56px;
@@ -1112,12 +1062,10 @@ export default {
   background: url('../assets/images/zhiding.png');
   background-size: 100% 100%;
 }
-
 .gototop:hover {
   background: url('../assets/images/zhidinghover.png');
   background-size: 100% 100%;
 }
-
 .kefuhover {
   display: inline-block;
   width: 56px;
@@ -1125,12 +1073,10 @@ export default {
   background: url('../assets/images/kefu.png');
   background-size: 100% 100%;
 }
-
 .kefuhover:hover {
   background: url('../assets/images/kefuhover.png');
   background-size: 100% 100%;
 }
-
 .xiazaiappweixin {
   display: inline-block;
   width: 56px;
@@ -1138,39 +1084,34 @@ export default {
   background: url('../assets/img/weiin.png');
   background-size: 100% 100%;
 }
-
 .xiazaiappweixin:hover {
   background: url('../assets/images/weixin.png');
   background-size: 100% 100%;
 }
-
 .navbox22 {
   position: absolute !important;
 }
-
 .el-message--warning {
   top: 75px !important;
 }
-
 .el-progress-bar__outer {
   height: 19px ;
 }
-
 .el-tooltip__popper.is-light {
   background: #FFF;
   border: 1px solid #dbdbdb !important;
 }
 .el-progress-bar__innerText {
-    color: #FFF;
-    font-size: 12px;
-    margin-top:-7px;
+  color: #FFF;
+  font-size: 12px;
+  margin-top:-7px;
 }
 .el-progress-bar__outer {
   height: 13px ;
 }
 .el-dialog__footer {
-    padding: 10px 20px 20px;
-    text-align: center;
-    box-sizing: border-box;
+  padding: 10px 20px 20px;
+  text-align: center;
+  box-sizing: border-box;
 }
 </style>
