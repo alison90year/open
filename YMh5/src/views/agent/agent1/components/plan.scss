@@ -1,0 +1,67 @@
+.plan {
+  &-app {
+    margin: auto;
+    width: 90%;
+    padding-top: rem(16rem);
+    li {
+      flex: 1;
+      display: flex;
+      height: rem(100rem);
+      flex-flow: column;
+      align-items: center;
+      font-size: rem(20rem);
+      color: rgba(65, 70, 85, 0.5);
+      img {
+        width: rem(68rem);
+      }
+      p {
+        line-height: rem(30rem);
+      }
+    }
+  }
+  &-content {
+    padding: 0 rem(24rem);
+    margin-top: rem(16rem);
+    li {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      background: map.get($colors, white);
+      margin-bottom: rem(16rem);
+      border-radius: rem(10rem);
+      padding: 0 rem(3rem);
+      max-height: rem(170rem);
+    }
+  }
+  &-icon {
+    padding: 0 rem(36rem);
+    height: rem(70rem);
+    line-height: rem(70rem);
+    img {
+      height: rem(64rem);
+      width: rem(62rem);
+      min-width: rem(62rem);
+    }
+  }
+  &-text {
+    margin: rem(10rem) rem(10rem) 0;
+    color: $theme-txt-color24;
+    span {
+      display: block;
+      text-align: left;
+      font-size: rem(24rem);
+    }
+    span:first-child {
+      line-height: rem(28rem);
+      color: $theme-txt-color12;
+    }
+    span:last-child {
+      margin-left: rem(-66rem);
+      width: 120%;
+      transform: scale(0.8);
+      line-height: rem(32rem);
+      text-align: justify;
+    }
+  }
+}

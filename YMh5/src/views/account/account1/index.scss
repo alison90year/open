@@ -1,0 +1,69 @@
+.account {
+  margin-top: rem(-80rem);
+  &-top {
+    height: rem(620rem);
+    background: url(link('/assets/blue/kok/account/safety_back.png')) no-repeat;
+    background-size: 100% 100%;
+    img {
+      margin: rem(90rem) 0 rem(26rem);
+      height: rem(416rem);
+      width: rem(416rem);
+    }
+  }
+  &-tip {
+    margin-bottom: rem(44rem);
+    height: rem(44rem);
+    color: $theme-txt-color8;
+  }
+  &-content {
+    margin: rem(-28rem) rem(32rem) 0 rem(32rem);
+    padding-bottom: rem(110rem);
+    background-color: map.get($colors, white);
+    overflow-y: auto;
+    border-radius: rem(8rem);
+    .van-cell {
+      padding: rem(6rem) rem(16rem);
+      line-height: rem(66rem);
+    }
+    .van-cell-group,
+    .van-cell:first-child {
+      border-radius: rem(8rem) rem(8rem) 0 0;
+    }
+    .van-cell__label {
+      margin-bottom: rem(10rem);
+      color: $theme-warning-color;
+    }
+    .cell-item {
+      display: block;
+      height: rem(120rem);
+      background-color: map.get($colors, white);
+      &-content {
+        margin: 0 rem(32rem);
+        border-bottom: rem(1rem) solid $theme-bd-color2;
+      }
+      &-warning {
+        width: rem(44rem);
+        height: rem(44rem);
+      }
+      &-right {
+        width: rem(32rem);
+        height: rem(32rem);
+      }
+      &-title {
+        color: $theme-txt-color;
+        height: rem(40rem);
+      }
+      &-label {
+        height: rem(40rem);
+        margin-top: rem(4rem);
+        color: $theme-txt-color19;
+      }
+      .go-complete {
+        color: $theme-txt-color19;
+      }
+      .label-warning {
+        color: $theme-warning-color;
+      }
+    }
+  }
+}

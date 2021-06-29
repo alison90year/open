@@ -1,0 +1,64 @@
+.prerogative{
+  width: 100%;
+  background: $theme-vip-prerogative-bg;
+  padding-top: rem(32rem);
+  margin-top: rem(22rem);
+  h2.title{
+    img{
+      margin-left: rem(28rem);
+      width: rem(6rem);
+      height: rem(32rem);
+    }
+    span{
+      line-height: rem(32rem);
+      font-size: rem(38rem);
+      height: rem(32rem);
+      margin-left: rem(18rem);
+      font-family: PingFangSC-Medium;
+    }
+  }
+  .list{
+    padding: rem(10rem) rem(28rem) rem(20rem);
+    li{
+      margin-top: rem(10rem);
+      height: rem(120rem);
+      width: rem(340rem);
+      border-radius: rem(4rem);
+      background: $theme-vip-prerogative-li-bg;
+    }
+    .icon{
+      width: rem(104rem);
+      height: 100%;
+      border-radius: rem(4rem);
+      background: $theme-vip-prerogative-icon-bg;
+      .cishu{
+        background-size: rem(56rem) rem(56rem);
+        @include webp('/assets/blue/kok/vip/times.png');
+        background-position: center;
+
+      }
+      i{
+        width: rem(56rem);
+        height: rem(56rem);
+      }
+    }
+    .info{
+      p:first-child{
+        color: $theme-vip-prerogative-title-txt;
+        line-height: rem(48rem);
+        font-size: rem(36rem);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-bottom: rem(12rem);
+        font-family: DINPro-Medium;
+      }
+      p:last-child{
+        line-height: rem(24rem);
+        font-size: rem(24rem);
+        color: $theme-vip-prerogative-content-txt;
+        white-space: nowrap;
+      } 
+    }  
+  }
+}
